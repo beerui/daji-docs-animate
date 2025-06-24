@@ -15,5 +15,7 @@ export default defineConfig({
         }
       }
     }
-  }
+  },
+  // 确保开发环境和生产环境的一致性
+  publicDir: 'public'
 }) 
