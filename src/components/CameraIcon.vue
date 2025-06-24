@@ -8,7 +8,6 @@
           class="camera-path"
         />
       </svg>
-      <div class="camera-label">相机图标动画</div>
     </div>
   </div>
 </template>
@@ -43,14 +42,6 @@ export default {
     transform: translateY(-2px);
   }
 }
-
-.camera-label {
-  font-size: 14px;
-  color: #666;
-  font-weight: 500;
-  text-align: center;
-}
-
 /* 相机图标SVG动画 */
 .camera-icon {
   transform: scale(1);
@@ -58,7 +49,7 @@ export default {
 }
 
 .camera-path {
-  fill: #fa3e3e;
+  fill: #ffffff;
   stroke: none;
   transition: all 0.1s ease;
 }
@@ -83,26 +74,26 @@ export default {
 
 @keyframes camera-stroke-once {
   0% {
-    fill: rgba(250, 62, 62, 0);
-    stroke: #fa3e3e;
+    fill: rgba(255, 255, 255, 0);
+    stroke: #ffffff;
     stroke-dashoffset: 300;
     stroke-dasharray: 0 300;
     stroke-width: 2;
   }
   50% {
     fill: rgba(250, 62, 62, 0);
-    stroke: #fa3e3e;
+    stroke: #ffffff;
     stroke-dashoffset: 0;
     stroke-dasharray: 300 0;
     stroke-width: 2;
   }
   80% {
     fill: rgba(250, 62, 62, 0);
-    stroke: #fa3e3e;
+    stroke: #ffffff;
     stroke-width: 1;
   }
   100% {
-    fill: rgba(250, 62, 62, 1);
+    fill: rgb(240, 240, 240);
     stroke: rgba(250, 62, 62, 0);
     stroke-dashoffset: -300;
     stroke-dasharray: 300 0;
@@ -136,28 +127,28 @@ export default {
 
 @keyframes camera-stroke-out {
   0% {
-    fill: rgba(250, 62, 62, 1);
+    fill: rgb(255, 255, 255);
     stroke: rgba(250, 62, 62, 0);
     stroke-dashoffset: -300;
     stroke-dasharray: 300 0;
     stroke-width: 0;
   }
   30% {
-    fill: rgba(250, 62, 62, 0.5);
-    stroke: #fa3e3e;
+    fill: rgba(255, 255, 255, 0.5);
+    stroke: #ffffff;
     stroke-width: 1;
     stroke-dashoffset: -150;
     stroke-dasharray: 150 150;
   }
   60% {
     fill: rgba(250, 62, 62, 0);
-    stroke: #fa3e3e;
+    stroke: #ffffff;
     stroke-dashoffset: 0;
     stroke-dasharray: 0 300;
     stroke-width: 2;
   }
   100% {
-    fill: #fa3e3e;
+    fill: #ffffff;
     stroke: none;
     stroke-dashoffset: 0;
     stroke-dasharray: 0 0;
