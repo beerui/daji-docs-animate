@@ -115,6 +115,15 @@ export const animations = [
     difficulty: '中等',
     tags: ['扫光', '文字', '科技感'],
     component: 'ShineText'
+  },
+  {
+    id: 'camera-icon',
+    title: '相机图标动画',
+    description: 'SVG相机图标的描边动画和脉冲效果',
+    category: 'SVG动画',
+    difficulty: '中等',
+    tags: ['SVG', '相机', '描边', '脉冲'],
+    component: 'CameraIcon'
   }
 ]
 
@@ -125,5 +134,6 @@ export const categories = [
   '过渡动画',
   '图标动画',
   '文字动画',
-  '交互动画'
+  '交互动画',
+  'SVG动画'
 ] 

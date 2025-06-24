@@ -140,6 +140,7 @@ import SpinnerDots from '../components/SpinnerDots.vue'
 import ProgressBar from '../components/ProgressBar.vue'
 import RotatingCard from '../components/RotatingCard.vue'
 import ShineText from '../components/ShineText.vue'
+import CameraIcon from '../components/CameraIcon.vue'
 
 export default {
   name: 'AnimationDetail',
@@ -156,7 +157,8 @@ export default {
     SpinnerDots,
     ProgressBar,
     RotatingCard,
-    ShineText
+    ShineText,
+    CameraIcon
   },
   props: {
     id: {
@@ -192,7 +194,8 @@ export default {
         SpinnerDots,
         ProgressBar,
         RotatingCard,
-        ShineText
+        ShineText,
+        CameraIcon
       }
       return components[componentName]
     }
