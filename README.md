@@ -24,25 +24,25 @@
 
 ### 安装依赖
 
-\`\`\`bash
+```bash
 npm install
-\`\`\`
+```
 
 ### 启动开发服务器
 
-\`\`\`bash
+```bash
 npm run dev
-\`\`\`
+```
 
 ### 构建生产版本
 
-\`\`\`bash
+```bash
 npm run build
-\`\`\`
+```
 
 ## 项目结构
 
-\`\`\`
+```
 daji-docs-animate/
 ├── src/
 │   ├── components/          # 动画组件
@@ -69,7 +69,7 @@ daji-docs-animate/
 ├── package.json
 ├── vite.config.js
 └── README.md
-\`\`\`
+```
 
 ## 使用方法
 
