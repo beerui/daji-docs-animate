@@ -20,6 +20,10 @@
 - **文字动画** - 打字机效果
 - **交互动画** - 浮动按钮
 
+## 在线预览
+
+🌐 **在线地址**: https://beerui.github.io/daji-docs-animate/
+
 ## 快速开始
 
 ### 安装依赖
@@ -38,6 +42,22 @@ npm run dev
 
 ```bash
 npm run build
+```
+
+### 部署到 GitHub Pages
+
+```bash
+# 自动部署（推荐）
+git push origin main
+
+# 手动部署
+npm run deploy
+
+# 使用部署脚本（Windows）
+./deploy.bat
+
+# 使用部署脚本（Linux/Mac）
+./deploy.sh
 ```
 
 ## 项目结构
