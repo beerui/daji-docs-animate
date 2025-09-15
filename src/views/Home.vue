@@ -5,6 +5,16 @@
       <section class="hero">
         <h1 class="hero-title">大集动画文档库</h1>
         <p class="hero-subtitle">简单易用的Vue3 + SCSS动画示例集合</p>
+        <div class="hero-actions">
+          <a
+            class="btn github-btn"
+            href="https://github.com/beerui/daji-docs-animate"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            查看 GitHub 源码
+          </a>
+        </div>
       </section>
 
       <!-- 分类过滤器 -->
@@ -194,6 +204,31 @@ export default {
       font-size: 18px;
     }
   }
+
+  .hero-actions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.btn.github-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 10px;
+  background: #111827;
+  color: #fff;
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 6px 18px rgba(17,24,39,0.25);
+  transition: $transition;
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 24px rgba(17,24,39,0.35);
+  }
 }
 
 .filters {
@@ -239,17 +274,21 @@ export default {
 
 .animations-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
-  gap: 30px;
-  
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+
+  @media (max-width: 1280px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
   @media (max-width: $tablet) {
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 24px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
   }
   
   @media (max-width: $mobile) {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 16px;
   }
 }
 

@@ -30,6 +30,16 @@
         <!-- 动画演示 -->
         <section class="animation-demo card">
           <h2 class="section-title">动画演示</h2>
+          <div class="github-bar">
+            <a
+              class="btn github-btn"
+              href="https://github.com/beerui/daji-docs-animate"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              在 GitHub 上查看源码
+            </a>
+          </div>
           <div class="demo-container">
             <component
               :is="getComponent(animation.component)"
@@ -322,6 +332,31 @@ export default {
   font-weight: 600;
   margin-bottom: 24px;
   color: $text-dark;
+}
+
+.github-bar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 12px;
+}
+
+.btn.github-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border-radius: 10px;
+  background: #111827;
+  color: #fff;
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 6px 18px rgba(17,24,39,0.25);
+  transition: $transition;
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 24px rgba(17,24,39,0.35);
+  }
 }
 
 .animation-demo {
