@@ -1,0 +1,153 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Vue3动画示例文档库项目规则
+
+## 项目概述
+这是一个基于Vue3 + SCSS的动画示例文档库，主要用于展示各种CSS/JS动画效果。项目包含首页列表展示和详情页查看，简单易用。
+
+## 核心文件结构
+
+### 入口文件
+- [index.html](mdc:index.html) - HTML入口文件
+- [src/main.js](mdc:src/main.js) - Vue应用入口，包含路由配置
+- [src/App.vue](mdc:src/App.vue) - 主应用组件，包含头部、导航、页脚布局
+
+### 路由页面
+- [src/views/Home.vue](mdc:src/views/Home.vue) - 首页，展示所有动画组件列表
+- [src/views/AnimationDetail.vue](mdc:src/views/AnimationDetail.vue) - 详情页，展示单个动画组件和代码
+
+### 样式系统
+- [src/styles/variables.scss](mdc:src/styles/variables.scss) - SCSS变量定义，包含颜色、尺寸等
+- [src/styles/global.scss](mdc:src/styles/global.scss) - 全局样式，包含基础重置和公共样式
+
+### 数据文件
+- [src/data/animations.js](mdc:src/data/animations.js) - 动画组件列表数据
+- [src/data/codeExamples.js](mdc:src/data/codeExamples.js) - 各组件的代码示例
+
+## 动画组件规范
+
+### 组件文件位置
+所有动画组件位于 `src/components/` 目录下，命名使用PascalCase格式。
+
+### 现有动画组件
+- [src/components/LoadingDots.vue](mdc:src/components/LoadingDots.vue) - 文字逐个闪烁动画
+- [src/components/LoadingCircle.vue](mdc:src/components/LoadingCircle.vue) - 圆形加载器
+- [src/components/BounceBall.vue](mdc:src/components/BounceBall.vue) - 弹跳小球动画
+- [src/components/FadeSlide.vue](mdc:src/components/FadeSlide.vue) - 淡入滑动动画
+- [src/components/PulseHeart.vue](mdc:src/components/PulseHeart.vue) - 心跳脉搏动画
+- [src/components/WaveLoading.vue](mdc:src/components/WaveLoading.vue) - 波浪加载动画
+- [src/components/TypingText.vue](mdc:src/components/TypingText.vue) - 打字机效果
+- [src/components/FloatingButton.vue](mdc:src/components/FloatingButton.vue) - 浮动按钮动画
+- [src/components/ShimmerLoading.vue](mdc:src/components/ShimmerLoading.vue) - 闪光加载效果
+- [src/components/SpinnerDots.vue](mdc:src/components/SpinnerDots.vue) - 旋转点阵动画
+- [src/components/ProgressBar.vue](mdc:src/components/ProgressBar.vue) - 带闪光效果的进度条
+- [src/components/RotatingCard.vue](mdc:src/components/RotatingCard.vue) - 3D翻转卡片动画
+- [src/components/ShineText.vue](mdc:src/components/ShineText.vue) - 文字闪光效果
+- [src/components/FloatingBackButton.vue](mdc:src/components/FloatingBackButton.vue) - 智能悬浮返回按钮
+
+### 组件开发规范
+
+#### 结构要求
+```vue
+<template>
+  <div class="组件名-container">
+    <!-- 动画内容 -->
+  </div>
+</template>
+
+<script>
+export default {
+  name: '组件名'
+}
+</script>
+
+<style scoped lang="scss">
+@import "../styles/variables.scss";
+
+.组件名-container {
+  // 容器样式，建议使用flex居中
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px; // 统一高度
+}
+</style>
+```
+
+#### 样式规范
+1. 使用SCSS预处理器
+2. 必须引入变量文件：`@import "../styles/variables.scss"`
+3. 使用scoped样式避免污染
+4. 容器高度统一为200px
+5. 使用flex布局居中显示
+6. 动画效果使用CSS animation或transition
+
+#### 命名规范
+1. 组件名使用PascalCase：如`LoadingDots`
+2. CSS类名使用kebab-case：如`.loading-dots-container`
+3. 动画关键帧名使用camelCase：如`@keyframes bounceAnimation`
+
+## 数据管理
+
+### 添加新组件流程
+1. 在`src/components/`创建新的Vue组件
+2. 在[src/data/animations.js](mdc:src/data/animations.js)中添加组件信息
+3. 在[src/data/codeExamples.js](mdc:src/data/codeExamples.js)中添加代码示例
+4. 确保组件遵循上述开发规范
+
+### 组件数据结构
+```javascript
+{
+  id: '唯一标识',
+  name: '组件名称',
+  category: '分类',
+  description: '描述',
+  component: '组件引用',
+  difficulty: '难度等级(1-3)',
+  tags: ['标签数组']
+}
+```
+
+## SCSS最佳实践
+
+### 变量使用
+- 颜色变量定义在[src/styles/variables.scss](mdc:src/styles/variables.scss)
+- 使用`color.scale()`函数替代已弃用的`darken()`
+- 变量命名使用`$primary-color`格式
+
+### 导入顺序
+1. 在variables.scss顶部：`@use 'sass:color'`
+2. 在其他文件中：`@import "../styles/variables.scss"`
+
+### 响应式设计
+使用定义好的断点变量：
+- `$mobile`: 768px
+- `$tablet`: 1024px
+- `$desktop`: 1200px
+
+## 常见问题和解决方案
+
+### SCSS编译错误
+- 确保`@use`规则在文件顶部
+- 变量文件必须先导入SASS模块
+- 避免循环导入
+
+### 动画性能优化
+- 优先使用`transform`和`opacity`属性
+- 避免频繁重排重绘
+- 使用`will-change`属性提示浏览器
+
+### 浏览器兼容性
+- 添加厂商前缀：`-webkit-`, `-moz-`
+- 使用`backface-visibility: hidden`优化3D动画
+- 提供降级方案
+
+## 开发工具配置
+
+### Vite配置
+- 配置文件：[vite.config.js](mdc:vite.config.js)
+- 开发服务器默认端口：5173
+- 支持Vue3和SCSS预处理
