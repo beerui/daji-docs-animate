@@ -124,6 +124,42 @@ export const animations = [
     difficulty: '中等',
     tags: ['SVG', '相机', '描边', '脉冲'],
     component: 'CameraIcon'
+  },
+  {
+    id: 'bouncing-dots',
+    title: '弹跳加载点',
+    description: '三个小圆点依次向上弹跳的加载动画',
+    category: '加载动画',
+    difficulty: '简单',
+    tags: ['加载', '弹跳', '点'],
+    component: 'BouncingDots'
+  },
+  {
+    id: 'rainbow-border',
+    title: '彩虹流光边框',
+    description: '彩虹渐变背景移动形成流光边框效果',
+    category: '交互动画',
+    difficulty: '简单',
+    tags: ['边框', '渐变', '流光'],
+    component: 'RainbowBorder'
+  },
+  {
+    id: 'breathing-light',
+    title: '呼吸灯效果',
+    description: '通过阴影强度变化模拟呼吸光效',
+    category: '过渡动画',
+    difficulty: '简单',
+    tags: ['呼吸', '发光', '阴影'],
+    component: 'BreathingLight'
+  },
+  {
+    id: 'ripple-button',
+    title: '按钮波纹点击',
+    description: '点击位置产生扩散涟漪的按钮特效',
+    category: '交互动画',
+    difficulty: '简单',
+    tags: ['按钮', '波纹', '点击'],
+    component: 'RippleButton'
   }
 ]
 

@@ -86,6 +86,10 @@ import ProgressBar from '../components/ProgressBar.vue'
 import RotatingCard from '../components/RotatingCard.vue'
 import ShineText from '../components/ShineText.vue'
 import CameraIcon from '../components/CameraIcon.vue'
+import BouncingDots from '../components/BouncingDots.vue'
+import RainbowBorder from '../components/RainbowBorder.vue'
+import BreathingLight from '../components/BreathingLight.vue'
+import RippleButton from '../components/RippleButton.vue'
 
 export default {
   name: 'Home',
@@ -104,6 +108,10 @@ export default {
     RotatingCard,
     ShineText,
     CameraIcon
+    , BouncingDots
+    , RainbowBorder
+    , BreathingLight
+    , RippleButton
   },
   setup() {
     const router = useRouter()
@@ -140,6 +148,10 @@ export default {
         RotatingCard,
         ShineText,
         CameraIcon
+        , BouncingDots
+        , RainbowBorder
+        , BreathingLight
+        , RippleButton
       }
       return components[componentName]
     }
