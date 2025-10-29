@@ -915,5 +915,146 @@ export default {
 3. **填充过渡**：从描边状态过渡到填充状态，营造绘制完成的效果
 4. **反向动画**：鼠标移出时播放反向动画，回到初始状态
 5. **双向交互**：悬停进入和离开都有对应的动画效果`
+  },
+  'global-step-card-1': {
+    template: `<template>
+  <div class="steps-grid">
+    <div class="step-card">
+      <img src="https://static.chinamarket.cn/static/trade-exhibition/en-station/about/how-works-1.png" alt="Sign up & Share your Needs" class="step-image" />
+      <div class="step-title">Sign up</div>
+      <div class="btn">RFQ</div>
+    </div>
+  </div>
+</template>`,
+    style: `<style scoped lang="scss">
+.steps-grid {
+  padding: 20px;
+}
+.step-card {
+  text-align: center;
+  width: 205px;
+  height: 180px;
+  position: relative;
+  box-sizing: content-box;
+  padding: 30px;
+  border-radius: 20px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  .btn {
+    background: #2B3245;
+    border-radius: 4px;
+    padding: 6px 14px;
+    color: #fff;
+    font-size: 20px;
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transform: translateX(-50%) translateY(10px);
+    transition: all 0.3s ease;
   }
+  &:hover {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    .step-image {
+      transform: scale(1.2);
+    } 
+    .step-title {
+      transform: translateY(6px);
+    }
+    .btn {
+      display: block;
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+  }
+  
+  .step-image {
+    width: 80px;
+    height: 48px;
+    object-fit: contain;
+    margin: 0 auto 20px;
+    transition: transform 0.3s ease;
+  }
+  
+  .step-title {
+    font-size: 24px;
+    font-weight: 500;
+    color: #2B3245;
+    line-height: 1.3;
+    transition: transform 0.3s ease;
+  }
+}
+</style>`,
+    explanation: `这个步骤卡片动画通过以下方式实现：
+1. **悬停边框**：鼠标悬停时显示边框，增加视觉反馈
+2. **图片缩放**：悬停时图片放大1.2倍，营造动态效果
+3. **标题移动**：悬停时标题向下移动6px，增加层次感
+4. **按钮显示**：悬停时按钮从透明变为可见，并向上滑动
+5. **平滑过渡**：所有动画都使用0.3s的缓动过渡，确保流畅性
+6. **定位布局**：使用绝对定位确保按钮在卡片底部居中显示`
+  },
+  'global-step-card-2': {
+    template: `<template>
+  <div class="country-card">
+    <img class="rounded-8px" src="https://static.chinamarket.cn/static/trade-exhibition/en-station/about/seeking-national-1.jpg" alt="Malaysia" />
+    <div class="country-overlay">
+      <span class="country-name">Malaysia</span>
+    </div>
+  </div>
+</template>`,
+    style: `<style scoped lang="scss">
+.country-card {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border-radius: 6px;
+  overflow: hidden;
+  cursor: pointer;
+  
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  
+  .country-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  .country-name {
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+  }
+  
+  &:hover .country-overlay {
+    opacity: 1;
+  }
+  &:hover img {
+    transform: scale(1.2);
+  }
+}
+</style>`,
+    explanation: `这个国家卡片动画通过以下方式实现：
+1. **图片缩放**：悬停时图片放大1.2倍，创造动态效果
+2. **遮罩层显示**：悬停时显示半透明黑色遮罩层
+3. **文字居中**：遮罩层中的国家名称居中显示
+4. **平滑过渡**：使用0.3s的缓动过渡确保动画流畅
+5. **溢出隐藏**：使用overflow: hidden确保缩放时不会超出边界
+6. **绝对定位**：遮罩层使用绝对定位覆盖整个卡片区域
+7. **弹性布局**：使用flex布局确保文字在遮罩层中居中显示`
+  }
+  
 } 

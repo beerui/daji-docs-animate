@@ -160,6 +160,24 @@ export const animations = [
     difficulty: '简单',
     tags: ['按钮', '波纹', '点击'],
     component: 'RippleButton'
+  },
+  {
+    id: 'global-step-card-1',
+    title: '卡片展示1',
+    description: '卡片组件，包含悬停动画效果',
+    category: '交互动画',
+    difficulty: '中等',
+    tags: ['卡片', '悬停', '展示'],
+    component: 'GlobalStepCard1'
+  },
+  {
+    id: 'global-step-card-2',
+    title: '卡片展示2',
+    description: '展示卡片组件，包含悬停动画效果',
+    category: '交互动画',
+    difficulty: '中等',
+    tags: ['卡片', '悬停', '展示'],
+    component: 'GlobalStepCard2'
   }
 ]
 

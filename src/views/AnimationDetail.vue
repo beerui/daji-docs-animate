@@ -155,6 +155,8 @@ import BouncingDots from '../components/BouncingDots.vue'
 import RainbowBorder from '../components/RainbowBorder.vue'
 import BreathingLight from '../components/BreathingLight.vue'
 import RippleButton from '../components/RippleButton.vue'
+import GlobalStepCard1 from '../components/GlobalStepCard1.vue'
+import GlobalStepCard2 from '../components/GlobalStepCard2.vue'
 
 export default {
   name: 'AnimationDetail',
@@ -177,6 +179,8 @@ export default {
     , RainbowBorder
     , BreathingLight
     , RippleButton
+    , GlobalStepCard1
+    , GlobalStepCard2
   },
   props: {
     id: {
@@ -218,6 +222,8 @@ export default {
         , RainbowBorder
         , BreathingLight
         , RippleButton
+        , GlobalStepCard1
+        , GlobalStepCard2
       }
       return components[componentName]
     }
