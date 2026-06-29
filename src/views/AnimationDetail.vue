@@ -157,6 +157,7 @@ import BreathingLight from '../components/BreathingLight.vue'
 import RippleButton from '../components/RippleButton.vue'
 import GlobalStepCard1 from '../components/GlobalStepCard1.vue'
 import GlobalStepCard2 from '../components/GlobalStepCard2.vue'
+import DajiTiltRotate from '../components/DajiTiltRotate.vue'
 
 export default {
   name: 'AnimationDetail',
@@ -181,6 +182,7 @@ export default {
     , RippleButton
     , GlobalStepCard1
     , GlobalStepCard2
+    , DajiTiltRotate
   },
   props: {
     id: {
@@ -224,6 +226,7 @@ export default {
         , RippleButton
         , GlobalStepCard1
         , GlobalStepCard2
+        , DajiTiltRotate
       }
       return components[componentName]
     }
@@ -540,4 +543,4 @@ export default {
     align-items: flex-start;
   }
 }
-</style> 
+</style>

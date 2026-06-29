@@ -1055,6 +1055,127 @@ export default {
 5. **溢出隐藏**：使用overflow: hidden确保缩放时不会超出边界
 6. **绝对定位**：遮罩层使用绝对定位覆盖整个卡片区域
 7. **弹性布局**：使用flex布局确保文字在遮罩层中居中显示`
+  },
+  'daji-tilt-rotate': {
+    template: `<template>
+  <div class="daji-tilt-rotate" aria-label="倾斜旋转的大集圆环动画">
+    <div class="ring-wrap">
+      <div class="shadow"></div>
+      <div class="ring">
+        <img :src="imageUrl" alt="" />
+      </div>
+    </div>
+    <div class="rim"></div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'DajiTiltRotate',
+  data() {
+    return {
+      imageUrl: \`\${import.meta.env.BASE_URL}daji-bg-base.png\`
+    }
+  }
+}
+</script>`,
+    style: `<style scoped lang="scss">
+.daji-tilt-rotate {
+  position: relative;
+  width: min(320px, 92%);
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+}
+
+.ring-wrap {
+  position: absolute;
+  left: 50%;
+  bottom: 14%;
+  width: 48%;
+  aspect-ratio: 1;
+  transform: translateX(-50%);
+  perspective: 720px;
+  transform-style: preserve-3d;
+}
+
+.shadow {
+  position: absolute;
+  inset: 30% 10%;
+  transform: rotateX(72deg);
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse,
+    rgba(24, 190, 233, 0.5),
+    rgba(24, 190, 233, 0.1) 42%,
+    transparent 70%
+  );
+  filter: blur(18px);
+  animation: breathe 2.8s ease-in-out infinite;
+}
+
+.ring {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+
+  img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    transform: rotateX(70deg) rotateZ(-18deg);
+    transform-origin: 50% 50%;
+    animation: spin 2.6s linear infinite;
+    filter:
+      drop-shadow(0 0 4px rgba(35, 205, 247, 0.9))
+      drop-shadow(0 0 14px rgba(35, 205, 247, 0.5));
+    will-change: transform;
+  }
+}
+
+.rim {
+  position: absolute;
+  left: 50%;
+  bottom: 23%;
+  width: 50%;
+  aspect-ratio: 4.8 / 1;
+  transform: translateX(-50%);
+  border: 6px solid rgba(54, 205, 246, 0.78);
+  border-radius: 50%;
+  box-shadow:
+    0 0 8px rgba(54, 205, 246, 0.9),
+    inset 0 0 12px rgba(6, 100, 170, 0.9);
+  pointer-events: none;
+}
+
+@keyframes spin {
+  from {
+    transform: rotateX(70deg) rotateZ(-18deg);
+  }
+
+  to {
+    transform: rotateX(70deg) rotateZ(342deg);
+  }
+}
+
+@keyframes breathe {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: rotateX(72deg) scale(0.95);
+  }
+
+  50% {
+    opacity: 0.85;
+    transform: rotateX(72deg) scale(1.06);
+  }
+}
+</style>`,
+    explanation: `这个图片倾斜旋转动画通过以下方式实现：
+1. **图片纹理复用**：直接使用透明 PNG 作为圆环主体，不重新绘制图形
+2. **固定倾斜角**：使用 rotateX(70deg) 建立稳定的透视平面
+3. **平面内旋转**：只改变 rotateZ 的角度，让圆环像转盘一样旋转
+4. **光效层补强**：通过阴影、drop-shadow 和椭圆边框强化底部发光效果
+5. **路径兼容**：使用 import.meta.env.BASE_URL 引用 public 资源，兼容本地和生产 base 路径`
   }
   
-} 
+}

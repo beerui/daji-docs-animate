@@ -178,6 +178,15 @@ export const animations = [
     difficulty: '中等',
     tags: ['卡片', '悬停', '展示'],
     component: 'GlobalStepCard2'
+  },
+  {
+    id: 'daji-tilt-rotate',
+    title: '大集圆环倾斜旋转',
+    description: '使用图片纹理实现倾斜透视下的圆环旋转效果',
+    category: '3D动画',
+    difficulty: '中等',
+    tags: ['图片', '3D', '旋转', '透视'],
+    component: 'DajiTiltRotate'
   }
 ]
 
@@ -189,5 +198,6 @@ export const categories = [
   '图标动画',
   '文字动画',
   '交互动画',
-  'SVG动画'
-] 
+  'SVG动画',
+  '3D动画'
+]
