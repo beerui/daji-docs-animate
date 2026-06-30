@@ -190,6 +190,123 @@ export const animations = [
     tags: ['图片', '3D', '旋转', '透视'],
     component: 'DajiTiltRotate'
   },
+  {
+    id: 'tilt-card',
+    title: '3D倾斜卡片',
+    description: '鼠标移动时卡片跟随倾斜，配合光泽扫过效果，营造立体交互感',
+    category: '交互动画',
+    difficulty: '中等',
+    tags: ['3D', '倾斜', '卡片', '鼠标跟随'],
+    component: 'TiltCard'
+  },
+  {
+    id: 'glass-sweep',
+    title: '毛玻璃扫光',
+    description: '毛玻璃质感卡片表面周期性光线扫过，打造高端科技视觉',
+    category: '过渡动画',
+    difficulty: '简单',
+    tags: ['毛玻璃', '扫光', '科技感'],
+    component: 'GlassSweep'
+  },
+  {
+    id: 'orbit-ring',
+    title: '轨道环旋转',
+    description: '多层同心环带发光点绕中心旋转，模拟卫星轨道或数据环',
+    category: '运动动画',
+    difficulty: '中等',
+    tags: ['轨道', '旋转', '光环', '科技'],
+    component: 'OrbitRing'
+  },
+  {
+    id: 'float-orb',
+    title: '悬浮光球',
+    description: '立体渐变光球上下浮动，带环绕光环和内部高光，适合作为视觉焦点',
+    category: '运动动画',
+    difficulty: '简单',
+    tags: ['光球', '悬浮', '渐变', '焦点'],
+    component: 'FloatOrb'
+  },
+  {
+    id: 'bar-wave',
+    title: '柱状波浪',
+    description: '多根柱形依次起伏波动，模拟音频均衡器或数据指标跳动',
+    category: '加载动画',
+    difficulty: '简单',
+    tags: ['柱状', '波浪', '均衡器', '跳动'],
+    component: 'BarWave'
+  },
+  {
+    id: 'svg-draw-path',
+    title: 'SVG路径绘制',
+    description: 'SVG曲线描边动画 + 光点沿路径移动，模拟路线动画或数据流向',
+    category: 'SVG动画',
+    difficulty: '中等',
+    tags: ['SVG', '路径', '描边', '光点'],
+    component: 'SvgDrawPath'
+  },
+  {
+    id: 'count-up',
+    title: '数字滚动',
+    description: '数字从0递增到目标值的滚动动画，进入视口时自动触发',
+    category: '文字动画',
+    difficulty: '中等',
+    tags: ['数字', '滚动', '计数', '视口触发'],
+    component: 'CountUp'
+  },
+  {
+    id: 'scroll-progress',
+    title: '滚动进度条',
+    description: '跟随内容滚动实时更新的进度指示条，带渐变色发光填充',
+    category: '交互动画',
+    difficulty: '中等',
+    tags: ['滚动', '进度', '指示器'],
+    component: 'ScrollProgress'
+  },
+  {
+    id: 'text-gradient',
+    title: '渐变流光文字',
+    description: '文字填充渐变色并在背景上循环流动，打造醒目标题效果',
+    category: '文字动画',
+    difficulty: '简单',
+    tags: ['渐变', '流光', '文字', '标题'],
+    component: 'TextGradient'
+  },
+  {
+    id: 'reveal-scroll',
+    title: '滚动揭示',
+    description: '元素在进入视口时从模糊到清晰、从下方淡入，适合页面滚动叙事',
+    category: '过渡动画',
+    difficulty: '简单',
+    tags: ['滚动', '揭示', '淡入', '模糊'],
+    component: 'RevealScroll'
+  },
+  {
+    id: 'pulse-dot',
+    title: '脉冲指示点',
+    description: '小圆点周期性缩放脉冲，配合外圈扩散光晕，表示在线状态或活跃信号',
+    category: '图标动画',
+    difficulty: '简单',
+    tags: ['脉冲', '指示点', '状态', '信号'],
+    component: 'PulseDot'
+  },
+  {
+    id: 'radar-breath',
+    title: '雷达呼吸波',
+    description: '从中心向外扩散的环形波纹，模拟雷达扫描或信号广播效果',
+    category: 'SVG动画',
+    difficulty: '简单',
+    tags: ['雷达', '波纹', '扩散', '扫描'],
+    component: 'RadarBreath'
+  },
+  {
+    id: 'logo-sheen',
+    title: 'Logo扫光',
+    description: '品牌标识上的对角线光泽扫过效果，适合 Logo 或图标展示',
+    category: '图标动画',
+    difficulty: '简单',
+    tags: ['Logo', '扫光', '品牌', '标识'],
+    component: 'LogoSheen'
+  },
   ...bigScreenAnimations
 ]
 
@@ -203,5 +320,6 @@ export const categories = [
   '交互动画',
   'SVG动画',
   '3D动画',
-  '大屏动画'
+  '大屏动画',
+  '视口动画'
 ]

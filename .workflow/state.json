@@ -1,0 +1,18 @@
+{
+  "version": "3.1",
+  "project_name": "daji-docs-animate",
+  "status": "idle",
+  "current_milestone": null,
+  "current_task_id": null,
+  "milestones": [],
+  "artifacts": [],
+  "last_updated": "2025-07-01T00:00:00Z",
+  "last_codebase_rebuild": "2025-07-01T00:00:00Z",
+  "accumulated_context": {
+    "key_decisions": [],
+    "blockers": [],
+    "deferred": []
+  },
+  "transition_history": [],
+  "milestone_history": []
+}

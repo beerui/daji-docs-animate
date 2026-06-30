@@ -1179,6 +1179,343 @@ export default {
 4. **光效层补强**：通过阴影、drop-shadow 和椭圆边框强化底部发光效果
 5. **路径兼容**：使用 import.meta.env.BASE_URL 引用 public 资源，兼容本地和生产 base 路径`
   },
+  'tilt-card': {
+    template: `<template>
+  <TiltCard>
+    <div style="text-align:center;padding:50px 20px;">
+      <strong style="font-size:22px;color:#0b3c9d;">3D Tilt Card</strong>
+      <p style="color:#5d6d86;margin-top:8px;">移动鼠标体验 3D 倾斜</p>
+    </div>
+  </TiltCard>
+</template>
+
+<script>
+import TiltCard from './components/TiltCard.vue'
+
+export default {
+  name: 'TiltCardDemo',
+  components: { TiltCard }
+}
+</script>`,
+    style: `<style scoped lang="scss">
+/* TiltCard 为自包含组件，无需额外样式。
+   卡片倾斜角度、光泽位置均通过 CSS 变量驱动，
+   在 pointermove 事件中实时更新 --tilt-x / --tilt-y。 */
+</style>`,
+    explanation: `这个动画通过以下方式实现：
+1. 监听 pointermove 事件计算鼠标在卡片上的相对位置
+2. 通过 CSS 变量 --tilt-x / --tilt-y 驱动 perspective 旋转变换
+3. radial-gradient 光泽层跟随鼠标位置显示高光
+4. pointerleave 时平滑复位，transition 保证过渡自然`
+  },
+
+  'glass-sweep': {
+    template: `<template>
+  <GlassSweep>
+    <div style="text-align:center;padding:50px 20px;">
+      <strong style="font-size:22px;color:#0b3c9d;">毛玻璃扫光卡片</strong>
+      <p style="color:#5d6d86;margin-top:8px;">光线周期性扫过</p>
+    </div>
+  </GlassSweep>
+</template>
+
+<script>
+import GlassSweep from './components/GlassSweep.vue'
+
+export default {
+  name: 'GlassSweepDemo',
+  components: { GlassSweep }
+}
+</script>`,
+    style: `<style scoped lang="scss">
+/* GlassSweep 自包含，光线扫过由伪元素 + @keyframes 驱动。 */
+</style>`,
+    explanation: `这个动画通过以下方式实现：
+1. 毛玻璃背景使用 rgba + backdrop-filter: blur() 组合
+2. ::after 伪元素生成线性渐变光带
+3. translateX(-120%) → translateX(120%) 驱动光线周期性扫过
+4. 6s ease-in-out infinite 确保循环流畅`
+  },
+
+  'orbit-ring': {
+    template: `<template>
+  <OrbitRing />
+</template>
+
+<script>
+import OrbitRing from './components/OrbitRing.vue'
+
+export default {
+  name: 'OrbitRingDemo',
+  components: { OrbitRing }
+}
+</script>`,
+    style: `<style scoped lang="scss">
+/* OrbitRing 自包含：核心球 + 双层旋转环 + 发光点 */
+</style>`,
+    explanation: `这个动画通过以下方式实现：
+1. 核心球使用 radial-gradient 模拟立体光照
+2. 双层圆环 border-radius: 50% + border + rotate(360deg) 旋转
+3. 外层环 animation-direction: reverse 形成交错旋转
+4. 环上发光点用绝对定位 + box-shadow 营造光晕`
+  },
+
+  'float-orb': {
+    template: `<template>
+  <FloatOrb />
+</template>
+
+<script>
+import FloatOrb from './components/FloatOrb.vue'
+
+export default {
+  name: 'FloatOrbDemo',
+  components: { FloatOrb }
+}
+</script>`,
+    style: `<style scoped lang="scss">
+/* FloatOrb 自包含：立体渐变球 + 环绕光环 + 上下浮动 */
+</style>`,
+    explanation: `这个动画通过以下方式实现：
+1. radial-gradient 多层色彩叠加创建立体球体感
+2. inset box-shadow 模拟内部阴影和深度
+3. ::after 伪元素创建倾斜环绕光环
+4. translateY 关键帧 + ease-in-out 实现柔和浮动`
+  },
+
+  'bar-wave': {
+    template: `<template>
+  <BarWave />
+</template>
+
+<script>
+import BarWave from './components/BarWave.vue'
+
+export default {
+  name: 'BarWaveDemo',
+  components: { BarWave }
+}
+</script>`,
+    style: `<style scoped lang="scss">
+/* BarWave 自包含：5 根柱形，依次起伏。 */
+</style>`,
+    explanation: `这个动画通过以下方式实现：
+1. 5 根柱形用 flexbox 均匀分布
+2. 每根柱子通过 animation-delay 错开 0.16s
+3. scaleY 关键帧让柱子纵向缩放，transform-origin: bottom 保持底部固定
+4. linear-gradient 从上到下渐变配色`
+  },
+
+  'svg-draw-path': {
+    template: `<template>
+  <SvgDrawPath />
+</template>
+
+<script>
+import SvgDrawPath from './components/SvgDrawPath.vue'
+
+export default {
+  name: 'SvgDrawPathDemo',
+  components: { SvgDrawPath }
+}
+</script>`,
+    style: `<style scoped lang="scss">
+/* SvgDrawPath 自包含：曲线描边 + 光点沿路径移动 */
+</style>`,
+    explanation: `这个动画通过以下方式实现：
+1. stroke-dasharray + stroke-dashoffset 控制描边绘制进度
+2. @keyframes 将 dashoffset 从全长减到 0，形成绘制动画
+3. offset-path + offset-distance 驱动光点沿路径移动
+4. SVG filter feGaussianBlur 添加发光效果`
+  },
+
+  'count-up': {
+    template: `<template>
+  <CountUp :target="10000" prefix="" suffix="+" :duration="1800" />
+</template>
+
+<script>
+import CountUp from './components/CountUp.vue'
+
+export default {
+  name: 'CountUpDemo',
+  components: { CountUp }
+}
+</script>`,
+    style: `<style scoped lang="scss">
+/* CountUp 自包含，通过 props 配置目标值、前缀、后缀、动画时长。 */
+</style>`,
+    explanation: `这个动画通过以下方式实现：
+1. IntersectionObserver 监听元素进入视口时触发动画
+2. requestAnimationFrame + 三次缓出函数驱动数值递增
+3. toLocaleString 处理千分位格式化
+4. Props 支持 target、prefix、suffix、duration、comma 配置`
+  },
+
+  'scroll-progress': {
+    template: `<template>
+  <ScrollProgress>
+    <div style="min-height:300px;padding:20px;">
+      <p v-for="i in 8" :key="i" style="padding:10px 0;color:#5d6d86;">
+        滚动查看进度条变化 — 段落 {{ i }}
+      </p>
+    </div>
+  </ScrollProgress>
+</template>
+
+<script>
+import ScrollProgress from './components/ScrollProgress.vue'
+
+export default {
+  name: 'ScrollProgressDemo',
+  components: { ScrollProgress }
+}
+</script>`,
+    style: `<style scoped lang="scss">
+/* ScrollProgress 自包含：顶部固定进度条 + 可滚动内容区 */
+</style>`,
+    explanation: `这个动画通过以下方式实现：
+1. 监听内部容器的 scroll 事件计算滚动百分比
+2. 渐变色进度条宽度随滚动位置实时更新
+3. box-shadow 发光效果强化视觉反馈
+4. 使用 slot 支持自定义内容区域`
+  },
+
+  'text-gradient': {
+    template: `<template>
+  <TextGradient>流光溢彩</TextGradient>
+</template>
+
+<script>
+import TextGradient from './components/TextGradient.vue'
+
+export default {
+  name: 'TextGradientDemo',
+  components: { TextGradient }
+}
+</script>`,
+    style: `<style scoped lang="scss">
+/* TextGradient 自包含：渐变文字 + 背景位移动画 */
+</style>`,
+    explanation: `这个动画通过以下方式实现：
+1. background: linear-gradient 设置渐变色填充
+2. -webkit-background-clip: text 将背景裁剪到文字形状
+3. color: transparent 让文字底色透明露出渐变背景
+4. background-position 关键帧动画让渐变流动起来`
+  },
+
+  'reveal-scroll': {
+    template: `<template>
+  <div style="min-height:120px;">
+    <RevealScroll :threshold="0.15" :delay="0">
+      <div style="padding:40px;text-align:center;background:#f0f7ff;border-radius:18px;">
+        <strong style="font-size:22px;color:#0b3c9d;">滚动触发揭示</strong>
+        <p style="color:#5d6d86;margin-top:8px;">向下滚动页面查看效果</p>
+      </div>
+    </RevealScroll>
+  </div>
+</template>
+
+<script>
+import RevealScroll from './components/RevealScroll.vue'
+
+export default {
+  name: 'RevealScrollDemo',
+  components: { RevealScroll }
+}
+</script>`,
+    style: `<style scoped lang="scss">
+/* RevealScroll 自包含：IntersectionObserver + CSS 过渡 */
+</style>`,
+    explanation: `这个动画通过以下方式实现：
+1. IntersectionObserver 检测元素进入视口
+2. 初始状态 opacity: 0 + translateY(28px) + blur(8px)
+3. 进入视口后切换 class 触发 CSS 过渡
+4. cubic-bezier(0.16,1,0.3,1) 缓动曲线让动画更自然`
+  },
+
+  'pulse-dot': {
+    template: `<template>
+  <div style="padding:20px;display:flex;gap:24px;align-items:center;justify-content:center;">
+    <PulseDot>在线</PulseDot>
+    <PulseDot>活跃</PulseDot>
+    <PulseDot>就绪</PulseDot>
+  </div>
+</template>
+
+<script>
+import PulseDot from './components/PulseDot.vue'
+
+export default {
+  name: 'PulseDotDemo',
+  components: { PulseDot }
+}
+</script>`,
+    style: `<style scoped lang="scss">
+/* PulseDot 自包含：缩放脉冲 + 外圈光晕扩散 */
+</style>`,
+    explanation: `这个动画通过以下方式实现：
+1. 小圆点使用 border-radius: 50% 形成圆形
+2. box-shadow 扩散模拟外圈光晕
+3. scale + box-shadow 同步关键帧动画
+4. animation: dotPulse 1.5s ease-in-out infinite`
+  },
+
+  'radar-breath': {
+    template: `<template>
+  <div style="background:#07172f;padding:40px;border-radius:24px;display:flex;justify-content:center;">
+    <RadarBreath />
+  </div>
+</template>
+
+<script>
+import RadarBreath from './components/RadarBreath.vue'
+
+export default {
+  name: 'RadarBreathDemo',
+  components: { RadarBreath }
+}
+</script>`,
+    style: `<style scoped lang="scss">
+/* RadarBreath 自包含：中心点 + 三层扩散环，
+   深色背景效果最佳。 */
+</style>`,
+    explanation: `这个动画通过以下方式实现：
+1. 中心点用 box-shadow 模拟发光核心
+2. 三层扩散环通过 animation-delay 错开 1.2s
+3. 每层从 scale(0.2) + opacity(0.85) 扩散到 scale(1.3) + opacity(0)
+4. 深色背景衬托波纹最明显`
+  },
+
+  'logo-sheen': {
+    template: `<template>
+  <LogoSheen>
+    <template #default>
+      <span style="font-size:24px;color:#fff;z-index:1;">◆</span>
+    </template>
+    <template #label>
+      Brand
+    </template>
+  </LogoSheen>
+</template>
+
+<script>
+import LogoSheen from './components/LogoSheen.vue'
+
+export default {
+  name: 'LogoSheenDemo',
+  components: { LogoSheen }
+}
+</script>`,
+    style: `<style scoped lang="scss">
+/* LogoSheen 自包含：圆角方块 + 对角线光泽扫过 */
+</style>`,
+    explanation: `这个动画通过以下方式实现：
+1. 渐变背景 + 圆角创建 Logo 标记容器
+2. ::after 伪元素生成高光斜条
+3. translateX 关键帧驱动光泽从左下扫到右上
+4. overflow: hidden 确保光泽不溢出容器`
+  },
   ...bigScreenCodeExamples
   
 }

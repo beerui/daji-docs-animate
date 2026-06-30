@@ -1,0 +1,1495 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>关检汇税一站式外贸服务平台</title>
+  <meta name="description" content="基于中国大集关检汇税服务内容重构的现代政企服务平台企业官网页面，涵盖税务托管、出口退税、报关物流、支付结算、海外合规等外贸服务。" />
+  <style>
+    :root {
+      --bg: #f6f9ff;
+      --bg-2: #eef5ff;
+      --ink: #07172f;
+      --muted: #5d6d86;
+      --muted-2: #8a99ad;
+      --brand: #156df2;
+      --brand-dark: #0b3c9d;
+      --cyan: #23c7f7;
+      --aqua: #00d4b3;
+      --card: rgba(255, 255, 255, 0.78);
+      --card-solid: #ffffff;
+      --line: rgba(18, 63, 125, 0.11);
+      --shadow: 0 24px 80px rgba(18, 53, 105, 0.12);
+      --shadow-soft: 0 10px 36px rgba(18, 53, 105, 0.10);
+      --radius-lg: 24px;
+      --radius-md: 18px;
+      --radius-sm: 14px;
+      --container: 1200px;
+      --grid: 8px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 8% 6%, rgba(35, 199, 247, 0.20), transparent 30%),
+        radial-gradient(circle at 90% 8%, rgba(21, 109, 242, 0.18), transparent 34%),
+        linear-gradient(180deg, #f8fbff 0%, #f2f7ff 46%, #ffffff 100%);
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+
+    .noise {
+      pointer-events: none;
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      opacity: .32;
+      background-image: linear-gradient(rgba(10, 40, 80, .035) 1px, transparent 1px), linear-gradient(90deg, rgba(10, 40, 80, .035) 1px, transparent 1px);
+      background-size: 40px 40px;
+      mask-image: linear-gradient(180deg, #000, transparent 78%);
+    }
+
+    .wrap { position: relative; z-index: 1; }
+
+    .container {
+      width: min(calc(100% - 40px), var(--container));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: saturate(170%) blur(18px);
+      background: rgba(247, 251, 255, .78);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(145deg, #0f6df3, #19cff4);
+      box-shadow: 0 12px 28px rgba(21, 109, 242, .28);
+      position: relative;
+      overflow: hidden;
+    }
+    .brand-mark::before {
+      content: "";
+      width: 16px;
+      height: 16px;
+      border: 3px solid rgba(255,255,255,.92);
+      border-radius: 50%;
+      box-shadow: 13px 10px 0 -4px rgba(255,255,255,.92);
+      transform: rotate(-14deg);
+    }
+    .brand small {
+      display: block;
+      font-size: 11px;
+      color: var(--muted-2);
+      font-weight: 600;
+      margin-top: 2px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: #33455f;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .nav-links a {
+      padding: 10px 12px;
+      border-radius: 999px;
+      transition: .22s ease;
+    }
+    .nav-links a:hover { background: rgba(21,109,242,.08); color: var(--brand); }
+
+    .nav-cta {
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: #0b63f6;
+      color: #fff;
+      font-weight: 700;
+      box-shadow: 0 14px 28px rgba(21, 109, 242, .22);
+      white-space: nowrap;
+    }
+
+    .hero {
+      padding: 88px 0 72px;
+      display: grid;
+      grid-template-columns: 1.03fr .97fr;
+      gap: 56px;
+      align-items: center;
+      min-height: 720px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border: 1px solid rgba(21,109,242,.16);
+      border-radius: 999px;
+      background: rgba(255,255,255,.66);
+      box-shadow: 0 10px 30px rgba(44, 96, 166, .08);
+      color: var(--brand-dark);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .02em;
+    }
+    .eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--aqua);
+      box-shadow: 0 0 0 6px rgba(0, 212, 179, .12);
+    }
+
+    h1 {
+      margin: 28px 0 22px;
+      font-size: clamp(44px, 6.2vw, 78px);
+      line-height: .98;
+      letter-spacing: -0.07em;
+      color: #07172f;
+    }
+    .hero h1 .grad {
+      display: inline-block;
+      background: linear-gradient(98deg, #0a42ba 0%, #1576f8 46%, #12c9f0 100%);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .lead {
+      max-width: 650px;
+      margin: 0;
+      color: #53647c;
+      font-size: 18px;
+      line-height: 1.85;
+      font-weight: 500;
+    }
+
+    .hero-actions {
+      margin-top: 32px;
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      height: 48px;
+      padding: 0 20px;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 15px;
+      transition: transform .22s ease, box-shadow .22s ease, background .22s ease;
+      border: 1px solid transparent;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary {
+      background: linear-gradient(135deg, #0f65f2, #1cc7ee);
+      color: #fff;
+      box-shadow: 0 18px 40px rgba(21, 109, 242, .25);
+    }
+    .btn-secondary {
+      background: rgba(255,255,255,.72);
+      color: #0b315f;
+      border-color: var(--line);
+      box-shadow: 0 14px 32px rgba(18, 53, 105, .08);
+      backdrop-filter: blur(16px);
+    }
+
+    .hero-proof {
+      margin-top: 34px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      max-width: 620px;
+    }
+    .proof-card {
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255,255,255,.62);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 12px 32px rgba(18, 53, 105, .08);
+    }
+    .proof-card strong { display: block; font-size: 22px; letter-spacing: -.03em; }
+    .proof-card span { display: block; margin-top: 5px; font-size: 12px; color: var(--muted); line-height: 1.4; }
+
+    .hero-visual {
+      position: relative;
+      min-height: 610px;
+      perspective: 1400px;
+    }
+    .visual-shell {
+      position: absolute;
+      inset: 28px 0 0 0;
+      border-radius: 38px;
+      background:
+        radial-gradient(circle at 68% 12%, rgba(35,199,247,.34), transparent 34%),
+        radial-gradient(circle at 14% 22%, rgba(21,109,242,.28), transparent 36%),
+        linear-gradient(145deg, rgba(255,255,255,.92), rgba(235,245,255,.76));
+      border: 1px solid rgba(255,255,255,.74);
+      box-shadow: 0 36px 96px rgba(18, 53, 105, .16), inset 0 1px 0 rgba(255,255,255,.96);
+      overflow: hidden;
+      transform: rotateX(3deg) rotateY(-5deg);
+    }
+    .visual-shell::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(21,109,242,.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(21,109,242,.06) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: radial-gradient(circle at center, #000, transparent 72%);
+    }
+
+    .orb {
+      position: absolute;
+      right: -90px;
+      top: 34px;
+      width: 360px;
+      height: 360px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 30% 20%, rgba(255,255,255,.98), rgba(77, 163, 255, .78) 38%, rgba(9, 84, 196, .9) 72%, rgba(3, 35, 95, .96));
+      box-shadow: inset -34px -40px 80px rgba(3,30,75,.36), 0 30px 84px rgba(21,109,242,.28);
+      opacity: .95;
+    }
+    .orb::after {
+      content: "";
+      position: absolute;
+      inset: 72px -38px;
+      border: 2px solid rgba(255,255,255,.5);
+      border-left-color: transparent;
+      border-right-color: transparent;
+      border-radius: 50%;
+      transform: rotate(-18deg);
+    }
+
+    .dashboard {
+      position: absolute;
+      left: 42px;
+      right: 42px;
+      bottom: 46px;
+      border-radius: 28px;
+      padding: 22px;
+      background: rgba(255,255,255,.70);
+      border: 1px solid rgba(255,255,255,.76);
+      backdrop-filter: blur(20px);
+      box-shadow: 0 24px 72px rgba(18, 53, 105, .16);
+    }
+    .dashboard-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+    .dashboard-head h3 { margin: 0; font-size: 17px; letter-spacing: -.02em; }
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 7px 10px;
+      background: rgba(0, 212, 179, .12);
+      color: #007c6b;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+    }
+    .status i { width: 7px; height: 7px; border-radius: 50%; background: #00c49b; box-shadow: 0 0 0 5px rgba(0,196,155,.14); }
+    .route {
+      position: relative;
+      height: 180px;
+      border-radius: 22px;
+      background: linear-gradient(180deg, rgba(236,246,255,.84), rgba(255,255,255,.72));
+      border: 1px solid var(--line);
+      overflow: hidden;
+    }
+    .route svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .floating-card {
+      position: absolute;
+      border: 1px solid rgba(255,255,255,.78);
+      background: rgba(255,255,255,.70);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 18px 46px rgba(18, 53, 105, .14);
+      border-radius: 20px;
+      padding: 16px;
+    }
+    .float-a { left: -8px; top: 72px; width: 176px; }
+    .float-b { right: 4px; top: 260px; width: 190px; }
+    .float-c { left: 42%; top: 32px; width: 168px; }
+    .floating-card span { display: block; font-size: 12px; color: var(--muted); margin-bottom: 8px; font-weight: 700; }
+    .floating-card strong { display: block; font-size: 18px; letter-spacing: -.03em; }
+    .mini-bars { display: flex; gap: 5px; align-items: end; height: 34px; margin-top: 10px; }
+    .mini-bars i { flex: 1; border-radius: 999px; background: linear-gradient(180deg, #22c6f3, #136ff0); opacity: .9; }
+    .mini-bars i:nth-child(1) { height: 42%; }
+    .mini-bars i:nth-child(2) { height: 68%; }
+    .mini-bars i:nth-child(3) { height: 54%; }
+    .mini-bars i:nth-child(4) { height: 88%; }
+    .mini-bars i:nth-child(5) { height: 76%; }
+
+    section { padding: 76px 0; }
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      align-items: end;
+      margin-bottom: 34px;
+    }
+    .section-kicker {
+      margin: 0 0 10px;
+      color: var(--brand);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    h2 {
+      margin: 0;
+      font-size: clamp(30px, 4vw, 48px);
+      line-height: 1.12;
+      letter-spacing: -0.055em;
+    }
+    .section-head p {
+      margin: 0;
+      max-width: 470px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    .bento {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 16px;
+    }
+    .card {
+      position: relative;
+      border-radius: var(--radius-lg);
+      background: var(--card-solid);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+    }
+    .glass {
+      background: var(--card);
+      backdrop-filter: blur(18px);
+      border-color: rgba(255,255,255,.68);
+      box-shadow: var(--shadow);
+    }
+    .service-card {
+      min-height: 320px;
+      padding: 26px;
+      grid-column: span 4;
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .service-card.large { grid-column: span 8; min-height: 370px; }
+    .service-card:hover { transform: translateY(-5px); box-shadow: 0 28px 90px rgba(18, 53, 105, .16); }
+    .service-card::after {
+      content: "";
+      position: absolute;
+      right: -54px;
+      top: -54px;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(35,199,247,.24), transparent 70%);
+      pointer-events: none;
+    }
+    .icon {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      background: linear-gradient(145deg, rgba(21,109,242,.14), rgba(35,199,247,.13));
+      color: var(--brand);
+      margin-bottom: 18px;
+    }
+    .icon svg { width: 25px; height: 25px; }
+    .service-card h3 { margin: 0 0 12px; font-size: 23px; letter-spacing: -.035em; }
+    .service-card p { margin: 0 0 18px; color: var(--muted); line-height: 1.78; font-size: 15px; }
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+    .tag {
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: #f1f6ff;
+      color: #19427a;
+      font-size: 12px;
+      font-weight: 800;
+      border: 1px solid rgba(21,109,242,.08);
+    }
+    .card-graphic {
+      margin-top: 22px;
+      min-height: 90px;
+      border-radius: 20px;
+      background:
+        radial-gradient(circle at 22% 35%, rgba(21,109,242,.18), transparent 30%),
+        radial-gradient(circle at 72% 20%, rgba(35,199,247,.22), transparent 28%),
+        linear-gradient(135deg, rgba(240,247,255,.9), rgba(255,255,255,.72));
+      border: 1px solid var(--line);
+      position: relative;
+      overflow: hidden;
+    }
+    .card-graphic::before, .card-graphic::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #0f6df3, #23c7f7);
+      opacity: .78;
+    }
+    .card-graphic::before { width: 62%; height: 9px; left: 26px; top: 26px; }
+    .card-graphic::after { width: 38%; height: 9px; left: 26px; top: 51px; opacity: .42; }
+
+    .partners {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    .partner-card {
+      padding: 22px;
+      min-height: 230px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: .25s ease;
+    }
+    .partner-card:hover { transform: translateY(-4px); }
+    .partner-card .type {
+      display: inline-flex;
+      align-self: flex-start;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(21,109,242,.08);
+      color: var(--brand-dark);
+      font-size: 12px;
+      font-weight: 900;
+    }
+    .partner-card h3 { margin: 18px 0 10px; font-size: 18px; line-height: 1.35; letter-spacing: -.03em; }
+    .partner-card p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.7; }
+    .partner-card .linkline {
+      margin-top: 18px;
+      color: var(--brand);
+      font-weight: 900;
+      font-size: 13px;
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 16px;
+      align-items: stretch;
+    }
+    .trust-main {
+      padding: 34px;
+      min-height: 390px;
+      background:
+        radial-gradient(circle at 80% 16%, rgba(35,199,247,.24), transparent 31%),
+        linear-gradient(135deg, #071a3c, #0b4bb9 58%, #14b9e9);
+      color: #fff;
+    }
+    .trust-main h2 { color: #fff; max-width: 670px; }
+    .trust-main p { max-width: 680px; color: rgba(255,255,255,.76); line-height: 1.86; font-size: 16px; margin: 18px 0 0; }
+    .trust-pills { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 30px; }
+    .trust-pills span {
+      padding: 10px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.14);
+      border: 1px solid rgba(255,255,255,.18);
+      backdrop-filter: blur(14px);
+      font-weight: 800;
+      font-size: 13px;
+    }
+    .trust-side { display: grid; gap: 16px; }
+    .metric-card { padding: 24px; }
+    .metric-card strong { display: block; font-size: 38px; letter-spacing: -.055em; color: #0d55d8; }
+    .metric-card span { display: block; margin-top: 8px; color: var(--muted); line-height: 1.55; }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+      counter-reset: step;
+    }
+    .step {
+      padding: 22px;
+      min-height: 210px;
+    }
+    .step::before {
+      counter-increment: step;
+      content: "0" counter(step);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 15px;
+      background: linear-gradient(135deg, #0f6df3, #23c7f7);
+      color: #fff;
+      font-weight: 900;
+      box-shadow: 0 14px 28px rgba(21,109,242,.20);
+    }
+    .step h3 { margin: 18px 0 10px; font-size: 18px; letter-spacing: -.03em; }
+    .step p { margin: 0; color: var(--muted); line-height: 1.72; font-size: 14px; }
+
+    .cta {
+      padding: 42px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: center;
+      background:
+        radial-gradient(circle at 10% 10%, rgba(255,255,255,.95), transparent 24%),
+        linear-gradient(135deg, rgba(255,255,255,.86), rgba(230,242,255,.82));
+      border: 1px solid rgba(255,255,255,.72);
+    }
+    .cta h2 { font-size: clamp(28px, 4vw, 44px); }
+    .cta p { margin: 14px 0 0; color: var(--muted); line-height: 1.78; max-width: 760px; }
+    .contact-card {
+      min-width: 300px;
+      padding: 22px;
+      border-radius: 22px;
+      background: rgba(255,255,255,.76);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow-soft);
+    }
+    .contact-card strong { display: block; font-size: 24px; letter-spacing: -.03em; }
+    .contact-card span { display: block; color: var(--muted); line-height: 1.62; margin-top: 8px; font-size: 14px; }
+
+    footer {
+      padding: 40px 0 56px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .footer-inner {
+      border-top: 1px solid var(--line);
+      padding-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .source-note a { color: var(--brand); font-weight: 800; }
+
+    @media (max-width: 1024px) {
+      .hero { grid-template-columns: 1fr; padding-top: 60px; }
+      .hero-visual { min-height: 560px; }
+      .service-card, .service-card.large { grid-column: span 6; }
+      .partners { grid-template-columns: repeat(2, 1fr); }
+      .timeline { grid-template-columns: repeat(2, 1fr); }
+      .trust-grid, .cta { grid-template-columns: 1fr; }
+      .contact-card { min-width: 0; }
+      .section-head { align-items: start; flex-direction: column; }
+    }
+
+    @media (max-width: 720px) {
+      .container { width: min(calc(100% - 28px), var(--container)); }
+      .nav { height: 64px; }
+      .nav-links { display: none; }
+      .nav-cta { padding: 9px 12px; font-size: 13px; }
+      .hero { min-height: auto; padding: 44px 0 40px; gap: 26px; }
+      h1 { font-size: clamp(42px, 13vw, 58px); }
+      .lead { font-size: 16px; }
+      .hero-proof { grid-template-columns: 1fr; }
+      .hero-visual { min-height: 470px; }
+      .visual-shell { inset: 12px 0 0; border-radius: 28px; }
+      .orb { width: 270px; height: 270px; right: -112px; }
+      .dashboard { left: 18px; right: 18px; bottom: 22px; padding: 16px; }
+      .float-a, .float-b, .float-c { display: none; }
+      .route { height: 160px; }
+      section { padding: 54px 0; }
+      .bento { grid-template-columns: 1fr; }
+      .service-card, .service-card.large { grid-column: auto; min-height: auto; }
+      .partners { grid-template-columns: 1fr; }
+      .timeline { grid-template-columns: 1fr; }
+      .trust-main, .cta { padding: 26px; }
+      .footer-inner { flex-direction: column; }
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .orb { animation: floatOrb 7s ease-in-out infinite; }
+      .floating-card { animation: floatCard 6.8s ease-in-out infinite; }
+      .float-b { animation-delay: .8s; }
+      .float-c { animation-delay: 1.3s; }
+      @keyframes floatOrb { 0%,100% { transform: translateY(0); } 50% { transform: translateY(14px); } }
+      @keyframes floatCard { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+    }
+
+
+    /* ===== Enhanced Motion & Interaction Layer ===== */
+    :root {
+      --mx: 50%;
+      --my: 50%;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: -20%;
+      pointer-events: none;
+      z-index: 0;
+      background:
+        radial-gradient(circle at var(--mx) var(--my), rgba(35, 199, 247, .18), transparent 18rem),
+        conic-gradient(from 180deg at 50% 50%, rgba(21,109,242,.10), rgba(35,199,247,.08), transparent, rgba(0,212,179,.08), rgba(21,109,242,.10));
+      filter: blur(18px);
+      opacity: .72;
+      animation: ambientSpin 24s linear infinite;
+    }
+
+    @keyframes ambientSpin {
+      0% { transform: rotate(0deg) scale(1.02); }
+      100% { transform: rotate(360deg) scale(1.02); }
+    }
+
+    .scroll-progress {
+      position: fixed;
+      inset: 0 0 auto 0;
+      height: 3px;
+      z-index: 80;
+      background: transparent;
+      pointer-events: none;
+    }
+    .scroll-progress span {
+      display: block;
+      width: 0%;
+      height: 100%;
+      background: linear-gradient(90deg, #0f6df3, #23c7f7, #00d4b3);
+      box-shadow: 0 0 18px rgba(35,199,247,.65);
+      transition: width .08s linear;
+    }
+
+    .cursor-orb {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      z-index: 90;
+      pointer-events: none;
+      opacity: 0;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(circle, rgba(255,255,255,.85), rgba(35,199,247,.55) 45%, rgba(21,109,242,.10) 72%, transparent 73%);
+      box-shadow: 0 0 28px rgba(35,199,247,.42);
+      mix-blend-mode: screen;
+      transition: opacity .2s ease, width .18s ease, height .18s ease;
+    }
+    .cursor-orb.is-active { opacity: .86; }
+    .cursor-orb.is-hovering { width: 58px; height: 58px; opacity: .92; }
+
+    .topbar {
+      transition: box-shadow .24s ease, background .24s ease, border-color .24s ease;
+    }
+    .topbar.is-scrolled {
+      background: rgba(247,251,255,.88);
+      box-shadow: 0 18px 44px rgba(18,53,105,.10);
+      border-color: rgba(18,63,125,.07);
+    }
+
+    .nav-links a.is-active {
+      background: rgba(21,109,242,.10);
+      color: var(--brand);
+    }
+
+    .brand-mark::after {
+      content: "";
+      position: absolute;
+      inset: -45%;
+      background: linear-gradient(120deg, transparent 35%, rgba(255,255,255,.72), transparent 64%);
+      transform: translateX(-80%) rotate(15deg);
+      animation: logoSheen 4.8s ease-in-out infinite;
+    }
+    @keyframes logoSheen {
+      0%, 46% { transform: translateX(-95%) rotate(15deg); }
+      70%, 100% { transform: translateX(95%) rotate(15deg); }
+    }
+
+    .hero h1 .grad {
+      background-size: 220% 220%;
+      animation: textFlow 6.5s ease-in-out infinite;
+    }
+    @keyframes textFlow {
+      0%,100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    .eyebrow {
+      position: relative;
+      overflow: hidden;
+    }
+    .eyebrow::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(110deg, transparent 0%, rgba(255,255,255,.52) 48%, transparent 65%);
+      transform: translateX(-120%);
+      animation: eyebrowScan 4.2s ease-in-out infinite;
+    }
+    @keyframes eyebrowScan {
+      0%, 48% { transform: translateX(-120%); }
+      78%, 100% { transform: translateX(120%); }
+    }
+
+    .btn {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      will-change: transform;
+    }
+    .btn::before {
+      content: "";
+      position: absolute;
+      inset: -2px;
+      z-index: -1;
+      background: radial-gradient(circle at var(--btn-x, 50%) var(--btn-y, 50%), rgba(255,255,255,.55), transparent 34%);
+      opacity: 0;
+      transition: opacity .22s ease;
+    }
+    .btn:hover::before { opacity: 1; }
+    .btn .ripple {
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      pointer-events: none;
+      background: rgba(255,255,255,.55);
+      transform: translate(-50%, -50%) scale(1);
+      animation: ripple .62s ease-out forwards;
+    }
+    @keyframes ripple {
+      to { transform: translate(-50%, -50%) scale(16); opacity: 0; }
+    }
+
+    [data-reveal] {
+      opacity: 0;
+      transform: translate3d(0, 28px, 0) scale(.985);
+      filter: blur(8px);
+      transition: opacity .74s cubic-bezier(.16,1,.3,1), transform .74s cubic-bezier(.16,1,.3,1), filter .74s cubic-bezier(.16,1,.3,1);
+      transition-delay: var(--reveal-delay, 0ms);
+    }
+    [data-reveal].is-visible {
+      opacity: 1;
+      transform: translate3d(0, 0, 0) scale(1);
+      filter: blur(0);
+    }
+
+    .card, .proof-card, .contact-card, .dashboard, .floating-card {
+      will-change: transform;
+    }
+
+    .card {
+      transform-style: preserve-3d;
+    }
+    .card[data-tilt="true"] {
+      transform: perspective(900px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg)) translateY(var(--tilt-lift, 0px));
+      transition: transform .16s ease, box-shadow .22s ease;
+    }
+    .card[data-tilt="true"]::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+      background: radial-gradient(circle at var(--card-x, 50%) var(--card-y, 50%), rgba(255,255,255,.76), rgba(255,255,255,0) 35%);
+      opacity: 0;
+      transition: opacity .2s ease;
+      mix-blend-mode: soft-light;
+    }
+    .card[data-tilt="true"]:hover::before { opacity: .86; }
+    .card[data-tilt="true"] > * { position: relative; z-index: 2; }
+
+    .service-card:hover .icon,
+    .partner-card:hover .type,
+    .step:hover::before {
+      animation: pulseLift .7s cubic-bezier(.16,1,.3,1);
+    }
+    @keyframes pulseLift {
+      0% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-4px) scale(1.04); }
+      100% { transform: translateY(0) scale(1); }
+    }
+
+    .visual-shell {
+      will-change: transform;
+      transition: transform .16s ease;
+    }
+    .visual-shell::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(115deg, transparent 10%, rgba(255,255,255,.42) 28%, transparent 46%);
+      transform: translateX(-115%);
+      animation: glassSweep 6s ease-in-out infinite;
+      pointer-events: none;
+    }
+    @keyframes glassSweep {
+      0%, 42% { transform: translateX(-120%); }
+      74%, 100% { transform: translateX(120%); }
+    }
+
+    .orbital-ring {
+      position: absolute;
+      right: -84px;
+      top: 30px;
+      width: 382px;
+      height: 382px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,.42);
+      transform: rotateX(64deg) rotateZ(-18deg);
+      filter: drop-shadow(0 0 18px rgba(35,199,247,.22));
+      pointer-events: none;
+      animation: orbitSpin 9s linear infinite;
+    }
+    .orbital-ring::before,
+    .orbital-ring::after {
+      content: "";
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #fff;
+      box-shadow: 0 0 16px rgba(35,199,247,.95), 0 0 34px rgba(21,109,242,.42);
+    }
+    .orbital-ring::before { left: 34px; top: 66px; }
+    .orbital-ring::after { right: 42px; bottom: 76px; }
+    @keyframes orbitSpin { to { transform: rotateX(64deg) rotateZ(342deg); } }
+
+    .route path:first-of-type {
+      stroke-dasharray: 920;
+      stroke-dashoffset: 920;
+      animation: drawRoute 2.8s cubic-bezier(.16,1,.3,1) .45s forwards, routePulse 3.4s ease-in-out 3.4s infinite;
+    }
+    @keyframes drawRoute { to { stroke-dashoffset: 0; } }
+    @keyframes routePulse { 0%,100% { stroke-width: 5; } 50% { stroke-width: 7; } }
+    .route .cargo-dot {
+      filter: drop-shadow(0 0 12px rgba(35,199,247,.78));
+      animation: cargoMove 5.8s ease-in-out infinite;
+      offset-path: path("M42 154 C128 64, 235 186, 318 104 S483 58, 558 132");
+      offset-rotate: auto;
+    }
+    @keyframes cargoMove {
+      0% { offset-distance: 0%; opacity: .18; }
+      10%, 90% { opacity: 1; }
+      100% { offset-distance: 100%; opacity: .18; }
+    }
+
+    .mini-bars i {
+      transform-origin: bottom;
+      animation: barWave 1.8s ease-in-out infinite;
+    }
+    .mini-bars i:nth-child(2) { animation-delay: .16s; }
+    .mini-bars i:nth-child(3) { animation-delay: .32s; }
+    .mini-bars i:nth-child(4) { animation-delay: .48s; }
+    .mini-bars i:nth-child(5) { animation-delay: .64s; }
+    @keyframes barWave {
+      0%, 100% { transform: scaleY(.82); }
+      50% { transform: scaleY(1.14); }
+    }
+
+    .tag {
+      transition: transform .22s ease, background .22s ease, color .22s ease, border-color .22s ease;
+    }
+    .tag:hover {
+      transform: translateY(-2px);
+      background: rgba(21,109,242,.10);
+      color: #0b3c9d;
+      border-color: rgba(21,109,242,.20);
+    }
+
+    .experience-dock {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 70;
+      display: grid;
+      gap: 12px;
+      justify-items: end;
+    }
+    .dock-panel {
+      width: min(390px, calc(100vw - 32px));
+      transform: translateY(12px) scale(.96);
+      transform-origin: 100% 100%;
+      opacity: 0;
+      visibility: hidden;
+      border-radius: 26px;
+      padding: 18px;
+      border: 1px solid rgba(255,255,255,.72);
+      background: rgba(255,255,255,.78);
+      backdrop-filter: blur(24px) saturate(160%);
+      box-shadow: 0 28px 90px rgba(18,53,105,.22);
+      transition: .32s cubic-bezier(.16,1,.3,1);
+    }
+    .experience-dock.is-open .dock-panel {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0) scale(1);
+    }
+    .dock-panel h3 { margin: 0 0 8px; font-size: 18px; letter-spacing: -.03em; }
+    .dock-panel p { margin: 0 0 14px; color: var(--muted); line-height: 1.62; font-size: 13px; }
+    .dock-chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 14px; }
+    .dock-chip {
+      cursor: pointer;
+      border: 1px solid rgba(21,109,242,.14);
+      background: rgba(241,246,255,.86);
+      color: #143d73;
+      border-radius: 999px;
+      padding: 9px 11px;
+      font-size: 12px;
+      font-weight: 900;
+      transition: .2s ease;
+      user-select: none;
+    }
+    .dock-chip:hover { transform: translateY(-2px); }
+    .dock-chip.is-selected {
+      background: linear-gradient(135deg, rgba(15,109,243,.95), rgba(35,199,247,.90));
+      color: #fff;
+      border-color: transparent;
+      box-shadow: 0 12px 28px rgba(21,109,242,.20);
+    }
+    .dock-result {
+      min-height: 78px;
+      border-radius: 18px;
+      padding: 14px;
+      background: linear-gradient(135deg, rgba(240,247,255,.96), rgba(255,255,255,.82));
+      border: 1px solid rgba(21,109,242,.10);
+      color: #284461;
+      font-size: 13px;
+      line-height: 1.62;
+    }
+    .dock-result strong { color: #0b3c9d; }
+    .dock-fab {
+      border: 0;
+      cursor: pointer;
+      height: 56px;
+      padding: 0 18px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: #fff;
+      font-weight: 900;
+      letter-spacing: -.01em;
+      background: linear-gradient(135deg, #0f65f2, #23c7f7 72%, #00d4b3);
+      box-shadow: 0 18px 48px rgba(21,109,242,.30);
+      transition: transform .22s ease, box-shadow .22s ease;
+    }
+    .dock-fab:hover { transform: translateY(-3px); box-shadow: 0 24px 58px rgba(21,109,242,.36); }
+    .dock-fab i {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #fff;
+      box-shadow: 0 0 0 7px rgba(255,255,255,.18), 0 0 22px rgba(255,255,255,.85);
+      animation: fabPulse 1.5s ease-in-out infinite;
+    }
+    @keyframes fabPulse { 50% { transform: scale(.72); } }
+
+    .trust-main {
+      overflow: hidden;
+    }
+    .trust-main::after {
+      content: "";
+      position: absolute;
+      right: -100px;
+      bottom: -140px;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      background: repeating-radial-gradient(circle, rgba(255,255,255,.20) 0 1px, transparent 2px 16px);
+      opacity: .38;
+      animation: radarBreath 4.8s ease-in-out infinite;
+    }
+    @keyframes radarBreath { 50% { transform: scale(1.08); opacity: .55; } }
+
+    .step {
+      transition: transform .28s ease, box-shadow .28s ease;
+    }
+    .step:hover { transform: translateY(-7px); box-shadow: 0 28px 80px rgba(18,53,105,.14); }
+
+    @media (max-width: 720px) {
+      .cursor-orb { display: none; }
+      .experience-dock { right: 14px; bottom: 14px; }
+      .dock-fab { height: 52px; padding: 0 15px; font-size: 13px; }
+      .orbital-ring { width: 290px; height: 290px; right: -120px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+      }
+      [data-reveal] { opacity: 1; transform: none; filter: none; }
+      .cursor-orb { display: none; }
+    }
+
+  </style>
+</head>
+<body>
+  <div class="noise"></div>
+  <div class="scroll-progress" aria-hidden="true"><span></span></div>
+  <div class="cursor-orb" aria-hidden="true"></div>
+  <div class="wrap">
+    <header class="topbar">
+      <div class="container nav">
+        <a class="brand" href="#top" aria-label="关检汇税服务平台首页">
+          <span class="brand-mark"></span>
+          <span>关检汇税服务平台<small>Trade Service Cloud</small></span>
+        </a>
+        <nav class="nav-links" aria-label="主导航">
+          <a href="#services">服务矩阵</a>
+          <a href="#partners">服务商</a>
+          <a href="#trust">平台优势</a>
+          <a href="#process">服务流程</a>
+        </nav>
+        <a class="nav-cta" href="#contact">联系客服</a>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="container hero">
+        <div>
+          <span class="eyebrow">政企服务 · 外贸全链路解决方案</span>
+          <h1>让交易有保障，<br><span class="grad">让贸易更简单。</span></h1>
+          <p class="lead">面向跨境贸易企业，整合税务托管、出口退税、报关物流、国际物流、支付结算与海外合规服务，把分散的外贸履约环节压缩成一个清晰、可靠、可追踪的服务入口。</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#services">查看服务矩阵 →</a>
+            <a class="btn btn-secondary" href="#process">了解办理流程</a>
+          </div>
+          <div class="hero-proof" aria-label="核心数据">
+            <div class="proof-card"><strong>30年+</strong><span>税务合规与实战经验团队</span></div>
+            <div class="proof-card"><strong>10,000+</strong><span>财税与外贸服务客户沉淀</span></div>
+            <div class="proof-card"><strong>一站式</strong><span>报关、退税、物流、结算协同</span></div>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <div class="visual-shell">
+            <div class="orb"></div>
+            <div class="orbital-ring"></div>
+            <div class="floating-card float-a">
+              <span>Customs Clearance</span>
+              <strong>通关效率监控</strong>
+              <div class="mini-bars"><i></i><i></i><i></i><i></i><i></i></div>
+            </div>
+            <div class="floating-card float-b">
+              <span>Tax Refund</span>
+              <strong>退税资料闭环</strong>
+              <div class="mini-bars"><i></i><i></i><i></i><i></i><i></i></div>
+            </div>
+            <div class="floating-card float-c">
+              <span>Global Pay</span>
+              <strong>跨境收付款</strong>
+            </div>
+            <div class="dashboard">
+              <div class="dashboard-head">
+                <h3>外贸服务数字驾驶舱</h3>
+                <span class="status"><i></i>在线协同</span>
+              </div>
+              <div class="route">
+                <svg viewBox="0 0 600 220" role="img" aria-label="国际贸易物流路径示意">
+                  <defs>
+                    <linearGradient id="path" x1="0" x2="1">
+                      <stop offset="0" stop-color="#0f6df3"/>
+                      <stop offset="1" stop-color="#23c7f7"/>
+                    </linearGradient>
+                    <filter id="glow"><feGaussianBlur stdDeviation="5" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+                  </defs>
+                  <path d="M42 154 C128 64, 235 186, 318 104 S483 58, 558 132" fill="none" stroke="url(#path)" stroke-width="5" stroke-linecap="round" filter="url(#glow)"/>
+                  <circle class="cargo-dot" r="7" fill="#ffffff"/>
+                  <g fill="#0f6df3"><circle cx="42" cy="154" r="9"/><circle cx="318" cy="104" r="9"/><circle cx="558" cy="132" r="9"/></g>
+                  <g opacity=".22" stroke="#0f6df3" stroke-width="1"><path d="M20 40h560M20 92h560M20 144h560M20 196h560M88 20v180M192 20v180M296 20v180M400 20v180M504 20v180"/></g>
+                  <g transform="translate(246 132)">
+                    <rect x="0" y="14" width="128" height="38" rx="10" fill="#0b4bb9" opacity=".95"/>
+                    <rect x="12" y="0" width="72" height="30" rx="8" fill="#23c7f7" opacity=".85"/>
+                    <circle cx="28" cy="58" r="8" fill="#07172f" opacity=".72"/><circle cx="104" cy="58" r="8" fill="#07172f" opacity=".72"/>
+                  </g>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="services" class="container">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Service Matrix</p>
+            <h2>围绕外贸履约的模块化服务能力</h2>
+          </div>
+          <p>将企业最常见的报关、物流、退税、合规、支付问题拆解为可选模块，适配外贸公司、工厂、跨境电商、市场采购贸易等不同场景。</p>
+        </div>
+
+        <div class="bento">
+          <article class="card glass service-card large">
+            <div class="icon"><svg viewBox="0 0 24 24" fill="none"><path d="M5 4h14v16H5z" stroke="currentColor" stroke-width="1.8"/><path d="M8 8h8M8 12h8M8 16h5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+            <h3>税务托管与财税合规</h3>
+            <p>面向企业全生命周期，提供财税全托管、出口结汇退税、税收优惠落地、并购重组涉税支持、合同涉税条款审阅、财税合规规划等服务，重点解决外贸经营中的税务安全与合规风险。</p>
+            <div class="tags"><span class="tag">出口结汇退税</span><span class="tag">预警解除</span><span class="tag">信用修复</span><span class="tag">尽调与股权</span><span class="tag">虚开抗辩</span></div>
+            <div class="card-graphic"></div>
+          </article>
+
+          <article class="card service-card">
+            <div class="icon"><svg viewBox="0 0 24 24" fill="none"><path d="M3 16h18l-2 4H5l-2-4Z" stroke="currentColor" stroke-width="1.8"/><path d="M6 16V8h8l4 4v4" stroke="currentColor" stroke-width="1.8"/><path d="M8 11h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+            <h3>报关物流</h3>
+            <p>覆盖国际海运空运进出口、件杂货物流、滚装船物流、整船承租、仓储配送、散拼装柜与双清到门。</p>
+            <div class="tags"><span class="tag">进口清关</span><span class="tag">海运出口</span><span class="tag">单证办理</span></div>
+          </article>
+
+          <article class="card service-card">
+            <div class="icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 7h16M7 4v3M17 4v3M6 10h12v10H6z" stroke="currentColor" stroke-width="1.8"/><path d="m9 15 2 2 4-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <h3>出口退税</h3>
+            <p>提供外贸企业出口退税、代理记账、财税咨询、进出口权办理、外贸公司注册与首批退税审批协助。</p>
+            <div class="tags"><span class="tag">退税办理</span><span class="tag">代理记账</span><span class="tag">进出口权</span></div>
+          </article>
+
+          <article class="card service-card">
+            <div class="icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18Z" stroke="currentColor" stroke-width="1.8"/><path d="M3.5 12h17M12 3c2.4 2.4 3.5 5.4 3.5 9S14.4 18.6 12 21M12 3c-2.4 2.4-3.5 5.4-3.5 9s1.1 6.6 3.5 9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+            <h3>国际货代与通关</h3>
+            <p>支持国际海运、空运、铁路运输，以及危化品进出口运输、报关报检、一站式通关、TIR国际物流、集装箱场站服务。</p>
+            <div class="tags"><span class="tag">中欧卡航</span><span class="tag">TIR</span><span class="tag">集装箱场站</span></div>
+          </article>
+
+          <article class="card glass service-card">
+            <div class="icon"><svg viewBox="0 0 24 24" fill="none"><path d="M4 7h16v10H4z" stroke="currentColor" stroke-width="1.8"/><path d="M7 11h4M15 11h2M7 15h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+            <h3>支付结算</h3>
+            <p>提供全球收款、全球付款、阿联酋迪拉姆本地收款、外卡收单等能力，强化跨境资金流、合规支付与风控能力。</p>
+            <div class="tags"><span class="tag">全球收款</span><span class="tag">全球付款</span><span class="tag">外卡收单</span></div>
+          </article>
+
+          <article class="card service-card">
+            <div class="icon"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3 4 7v6c0 4.4 3.2 7 8 8 4.8-1 8-3.6 8-8V7l-8-4Z" stroke="currentColor" stroke-width="1.8"/><path d="m8.5 12 2.2 2.2 4.8-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+            <h3>海外合规增值服务</h3>
+            <p>面向跨境电商与外贸卖家，覆盖税务合规、知识产权合规、产品合规认证、海外工商与文件云存储。</p>
+            <div class="tags"><span class="tag">智能合规</span><span class="tag">产品认证</span><span class="tag">海外工商</span></div>
+          </article>
+        </div>
+      </section>
+
+      <section id="partners" class="container">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Certified Partners</p>
+            <h2>专业服务商协同，覆盖关键外贸环节</h2>
+          </div>
+          <p>基于公开页面内容整理服务商定位，形成清晰的企业服务入口，便于快速识别每家机构的核心能力。</p>
+        </div>
+        <div class="partners">
+          <article class="card partner-card"><div><span class="type">税务托管</span><h3>山东中翰东方税务师事务所</h3><p>聚焦财税全托管、出口结汇退税、涉税审阅与合规规划，强调税务、审计、司法检查等综合经验。</p></div><span class="linkline">税财法管控 →</span></article>
+          <article class="card partner-card"><div><span class="type">报关物流</span><h3>山东海驰国际物流</h3><p>服务国际海运空运、代理进出口、代理退税、私人物品运输、仓储配送与散拼装柜。</p></div><span class="linkline">现代物流方案 →</span></article>
+          <article class="card partner-card"><div><span class="type">出口退税</span><h3>山东税管家财务管理集团</h3><p>专注外贸公司注册、进出口权办理、代理记账、出口退税业务与财税全案咨询。</p></div><span class="linkline">退税办理支持 →</span></article>
+          <article class="card partner-card"><div><span class="type">国际货代</span><h3>青岛海兴达物流科技</h3><p>覆盖国际海运、国际空运、国际铁路、危化品进出口运输和报关报检等货代服务。</p></div><span class="linkline">多式联运 →</span></article>
+          <article class="card partner-card"><div><span class="type">通关平台</span><h3>临沂港有限公司</h3><p>依托外贸公共服务平台能力，提供一站式通关、中欧卡航、TIR、集装箱场站与贸易代理服务。</p></div><span class="linkline">快速通关 →</span></article>
+          <article class="card partner-card"><div><span class="type">供应链</span><h3>临沂商城国际供应链</h3><p>提供代理采购、市场研究、产品采购、海运订舱、金融服务与外贸综合服务平台能力。</p></div><span class="linkline">运贸一体化 →</span></article>
+          <article class="card partner-card"><div><span class="type">支付结算</span><h3>汇元银通</h3><p>具备互联网支付与跨境人民币支付相关能力，支持全球收付款、外卡收单与风控能力建设。</p></div><span class="linkline">跨境支付 →</span></article>
+          <article class="card partner-card"><div><span class="type">海外合规</span><h3>深圳跨规盈科技</h3><p>以智能合规 SaaS 为基础，服务跨境电商税务、知识产权、产品认证与海外工商。</p></div><span class="linkline">合规云服务 →</span></article>
+        </div>
+      </section>
+
+      <section id="trust" class="container">
+        <div class="trust-grid">
+          <article class="card trust-main">
+            <p class="section-kicker" style="color:rgba(255,255,255,.78)">Platform Trust</p>
+            <h2>以政企服务平台标准，重构外贸服务的确定性。</h2>
+            <p>平台价值不只是罗列服务商，而是把外贸企业在“关、检、汇、税、物、证、合规”中的不确定环节，转化为标准化、可选择、可协同的服务模块。企业能够按业务阶段快速匹配资源，降低沟通成本与履约风险。</p>
+            <div class="trust-pills"><span>国企信誉有保障</span><span>经营户可靠</span><span>物流成本低</span><span>进出口便捷</span></div>
+          </article>
+          <div class="trust-side">
+            <article class="card metric-card"><strong>96%</strong><span>税务托管服务团队中具备税务师、注册会计师、律师、中高级会计师等资质人员占比信息。</span></article>
+            <article class="card metric-card"><strong>5,000T</strong><span>物流服务商公开信息中提到的年承接装柜配柜规模。</span></article>
+          </div>
+        </div>
+      </section>
+
+      <section id="process" class="container">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Workflow</p>
+            <h2>从需求提交到履约归档的五步闭环</h2>
+          </div>
+          <p>页面可用于政企平台或企业官网落地页，前端可进一步接入在线表单、服务商 CRM、进度节点、资料上传与客服工单。</p>
+        </div>
+        <div class="timeline">
+          <article class="card step"><h3>提交需求</h3><p>选择税务、退税、报关、物流、支付或合规场景，补充企业与货物基础信息。</p></article>
+          <article class="card step"><h3>智能分流</h3><p>根据企业类型、贸易模式、目的国和服务复杂度，匹配对应服务商与办理路径。</p></article>
+          <article class="card step"><h3>资料校验</h3><p>对合同、发票、单证、资质、物流信息等材料进行完整性与风险校验。</p></article>
+          <article class="card step"><h3>协同办理</h3><p>由专业团队推进通关、运输、退税、支付结算与海外合规执行。</p></article>
+          <article class="card step"><h3>结果归档</h3><p>沉淀办理进度、关键文件与合规记录，为后续经营与审计留痕。</p></article>
+        </div>
+      </section>
+
+      <section id="contact" class="container">
+        <div class="card glass cta">
+          <div>
+            <p class="section-kicker">Contact</p>
+            <h2>需要外贸履约服务？从一次咨询开始。</h2>
+            <p>适用于出口退税、进出口权办理、报关报检、国际物流、跨境支付、海外合规等业务咨询。页面中的服务内容已重组为企业官网风格，可直接作为落地页原型继续开发。</p>
+          </div>
+          <aside class="contact-card">
+            <strong>4000008991</strong>
+            <span>工作日 8:30-18:00</span>
+            <span>山东省临沂市兰山区兰山街道<br>临沂商谷智慧产业园 C1 号楼 407 室</span>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <div class="experience-dock" aria-live="polite">
+      <div class="dock-panel" role="dialog" aria-label="智能服务匹配助手">
+        <h3>智能服务匹配</h3>
+        <p>选择当前外贸场景，页面会给出优先咨询路径，适合做官网转化入口或客服工单前置分流。</p>
+        <div class="dock-chips" aria-label="选择业务场景">
+          <button class="dock-chip" type="button" data-plan="退税">出口退税</button>
+          <button class="dock-chip" type="button" data-plan="报关">报关清关</button>
+          <button class="dock-chip" type="button" data-plan="物流">国际物流</button>
+          <button class="dock-chip" type="button" data-plan="支付">跨境收付款</button>
+          <button class="dock-chip" type="button" data-plan="合规">海外合规</button>
+          <button class="dock-chip" type="button" data-plan="税务">税务托管</button>
+        </div>
+        <div class="dock-result"><strong>建议：</strong>先选择一个或多个场景，系统会生成对应的咨询顺序与资料准备方向。</div>
+      </div>
+      <button class="dock-fab" type="button" aria-expanded="false"><i></i>体验智能匹配</button>
+    </div>
+
+
+    <footer class="container">
+      <div class="footer-inner">
+        <div>© 关检汇税服务平台 UI Concept · Corporate Website Landing Page</div>
+        <div class="source-note">内容信息整理自 <a href="https://www.chinamarket.cn/outside-trade-serve/customs-inspection-foreign-exchange-taxation" target="_blank" rel="noreferrer">中国大集关检汇税页面</a>，文案已按企业官网表达重构。</div>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    (() => {
+      const doc = document.documentElement;
+      const body = document.body;
+      const progress = document.querySelector('.scroll-progress span');
+      const cursor = document.querySelector('.cursor-orb');
+      const topbar = document.querySelector('.topbar');
+      const navLinks = [...document.querySelectorAll('.nav-links a')];
+      const sections = navLinks.map(link => document.querySelector(link.getAttribute('href'))).filter(Boolean);
+
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      const updateProgress = () => {
+        const max = Math.max(1, body.scrollHeight - window.innerHeight);
+        const pct = Math.min(100, Math.max(0, (window.scrollY / max) * 100));
+        if (progress) progress.style.width = pct + '%';
+        if (topbar) topbar.classList.toggle('is-scrolled', window.scrollY > 18);
+      };
+      updateProgress();
+      window.addEventListener('scroll', updateProgress, { passive: true });
+
+      const revealItems = [
+        '.hero > div', '.section-head', '.service-card', '.partner-card', '.trust-main', '.metric-card', '.step', '.cta'
+      ];
+      document.querySelectorAll(revealItems.join(',')).forEach((el, index) => {
+        el.dataset.reveal = '';
+        el.style.setProperty('--reveal-delay', Math.min((index % 6) * 70, 350) + 'ms');
+      });
+
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' });
+      document.querySelectorAll('[data-reveal]').forEach(el => revealObserver.observe(el));
+
+      const navObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          const id = '#' + entry.target.id;
+          navLinks.forEach(link => link.classList.toggle('is-active', link.getAttribute('href') === id));
+        });
+      }, { threshold: 0.42 });
+      sections.forEach(section => navObserver.observe(section));
+
+      const countObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          const el = entry.target;
+          if (el.dataset.counted === 'true') return;
+          el.dataset.counted = 'true';
+          const raw = el.textContent.trim();
+          const match = raw.match(/[\d,]+(?:\.\d+)?/);
+          if (!match) return;
+          const target = Number(match[0].replace(/,/g, ''));
+          const prefix = raw.slice(0, match.index);
+          const suffix = raw.slice(match.index + match[0].length);
+          const duration = prefersReduced ? 1 : 1100;
+          const start = performance.now();
+          const comma = match[0].includes(',');
+          const step = (now) => {
+            const p = Math.min(1, (now - start) / duration);
+            const eased = 1 - Math.pow(1 - p, 3);
+            let value = Math.round(target * eased);
+            el.textContent = prefix + (comma ? value.toLocaleString('en-US') : value) + suffix;
+            if (p < 1) requestAnimationFrame(step);
+          };
+          requestAnimationFrame(step);
+          countObserver.unobserve(el);
+        });
+      }, { threshold: 0.6 });
+      document.querySelectorAll('.proof-card strong, .metric-card strong').forEach(el => countObserver.observe(el));
+
+      document.querySelectorAll('.card').forEach(card => card.dataset.tilt = 'true');
+      const resetTilt = (el) => {
+        el.style.setProperty('--tilt-x', '0deg');
+        el.style.setProperty('--tilt-y', '0deg');
+        el.style.setProperty('--tilt-lift', '0px');
+      };
+      document.querySelectorAll('[data-tilt="true"]').forEach(card => {
+        card.addEventListener('pointermove', (event) => {
+          if (prefersReduced || window.innerWidth < 760) return;
+          const rect = card.getBoundingClientRect();
+          const x = event.clientX - rect.left;
+          const y = event.clientY - rect.top;
+          const px = x / rect.width;
+          const py = y / rect.height;
+          card.style.setProperty('--card-x', (px * 100).toFixed(1) + '%');
+          card.style.setProperty('--card-y', (py * 100).toFixed(1) + '%');
+          card.style.setProperty('--tilt-x', ((0.5 - py) * 7).toFixed(2) + 'deg');
+          card.style.setProperty('--tilt-y', ((px - 0.5) * 8).toFixed(2) + 'deg');
+          card.style.setProperty('--tilt-lift', '-4px');
+        });
+        card.addEventListener('pointerleave', () => resetTilt(card));
+      });
+
+      document.querySelectorAll('.btn, .nav-cta, .dock-fab').forEach(btn => {
+        btn.addEventListener('pointermove', event => {
+          const rect = btn.getBoundingClientRect();
+          btn.style.setProperty('--btn-x', ((event.clientX - rect.left) / rect.width * 100).toFixed(1) + '%');
+          btn.style.setProperty('--btn-y', ((event.clientY - rect.top) / rect.height * 100).toFixed(1) + '%');
+        });
+        btn.addEventListener('click', event => {
+          const ripple = document.createElement('span');
+          ripple.className = 'ripple';
+          const rect = btn.getBoundingClientRect();
+          ripple.style.left = (event.clientX - rect.left) + 'px';
+          ripple.style.top = (event.clientY - rect.top) + 'px';
+          btn.appendChild(ripple);
+          ripple.addEventListener('animationend', () => ripple.remove());
+        });
+      });
+
+      const visual = document.querySelector('.hero-visual');
+      const shell = document.querySelector('.visual-shell');
+      if (visual && shell) {
+        visual.addEventListener('pointermove', event => {
+          if (prefersReduced || window.innerWidth < 900) return;
+          const rect = visual.getBoundingClientRect();
+          const px = (event.clientX - rect.left) / rect.width - .5;
+          const py = (event.clientY - rect.top) / rect.height - .5;
+          shell.style.transform = `rotateX(${3 - py * 7}deg) rotateY(${-5 + px * 9}deg) translate3d(${px * 10}px, ${py * 8}px, 0)`;
+        });
+        visual.addEventListener('pointerleave', () => {
+          shell.style.transform = 'rotateX(3deg) rotateY(-5deg)';
+        });
+      }
+
+      if (cursor && !prefersReduced) {
+        let cursorX = window.innerWidth / 2;
+        let cursorY = window.innerHeight / 2;
+        let orbX = cursorX;
+        let orbY = cursorY;
+        const renderCursor = () => {
+          orbX += (cursorX - orbX) * 0.18;
+          orbY += (cursorY - orbY) * 0.18;
+          cursor.style.transform = `translate(${orbX}px, ${orbY}px) translate(-50%, -50%)`;
+          requestAnimationFrame(renderCursor);
+        };
+        requestAnimationFrame(renderCursor);
+        window.addEventListener('pointermove', event => {
+          cursorX = event.clientX;
+          cursorY = event.clientY;
+          cursor.classList.add('is-active');
+          doc.style.setProperty('--mx', (event.clientX / window.innerWidth * 100).toFixed(1) + '%');
+          doc.style.setProperty('--my', (event.clientY / window.innerHeight * 100).toFixed(1) + '%');
+        }, { passive: true });
+        document.querySelectorAll('a, button, .card').forEach(el => {
+          el.addEventListener('pointerenter', () => cursor.classList.add('is-hovering'));
+          el.addEventListener('pointerleave', () => cursor.classList.remove('is-hovering'));
+        });
+      }
+
+      const dock = document.querySelector('.experience-dock');
+      const fab = document.querySelector('.dock-fab');
+      const result = document.querySelector('.dock-result');
+      const chips = [...document.querySelectorAll('.dock-chip')];
+      const planMap = {
+        '退税': '优先准备出口合同、报关单、进项发票、收汇凭证，建议先咨询出口退税与代理记账模块。',
+        '报关': '优先梳理 HS 编码、箱单、发票、合同与监管条件，建议联动报关物流与通关平台服务商。',
+        '物流': '优先确认货类、体积重量、起运港/目的港、时效与费用约束，建议匹配海运、空运、铁路或 TIR 方案。',
+        '支付': '优先确认收付款币种、交易国家、主体资质与结算频次，建议进入全球收付款与外卡收单咨询。',
+        '合规': '优先确认目的国、销售平台、产品类别与认证要求，建议匹配海外税务、知识产权和产品认证服务。',
+        '税务': '优先盘点企业主体、合同流、发票流、资金流与历史风险，建议启动财税托管与涉税合规评估。'
+      };
+      const updatePlan = () => {
+        const selected = chips.filter(chip => chip.classList.contains('is-selected')).map(chip => chip.dataset.plan);
+        if (!result) return;
+        if (!selected.length) {
+          result.innerHTML = '<strong>建议：</strong>先选择一个或多个场景，系统会生成对应的咨询顺序与资料准备方向。';
+          return;
+        }
+        const first = selected[0];
+        const rest = selected.slice(1);
+        result.innerHTML = `<strong>推荐路径：</strong>先处理「${first}」，${planMap[first]}${rest.length ? '<br><strong>联动模块：</strong>' + rest.map(item => '「' + item + '」').join('、') + ' 可作为第二阶段并行推进。' : ''}`;
+      };
+      if (dock && fab) {
+        fab.addEventListener('click', () => {
+          const open = !dock.classList.contains('is-open');
+          dock.classList.toggle('is-open', open);
+          fab.setAttribute('aria-expanded', String(open));
+        });
+        chips.forEach(chip => {
+          chip.addEventListener('click', () => {
+            chip.classList.toggle('is-selected');
+            updatePlan();
+          });
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>

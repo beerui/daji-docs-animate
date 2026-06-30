@@ -103,6 +103,19 @@ import RippleButton from '../components/RippleButton.vue'
 import GlobalStepCard1 from '../components/GlobalStepCard1.vue'
 import GlobalStepCard2 from '../components/GlobalStepCard2.vue'
 import DajiTiltRotate from '../components/DajiTiltRotate.vue'
+import TiltCard from '../components/TiltCard.vue'
+import GlassSweep from '../components/GlassSweep.vue'
+import OrbitRing from '../components/OrbitRing.vue'
+import FloatOrb from '../components/FloatOrb.vue'
+import BarWave from '../components/BarWave.vue'
+import SvgDrawPath from '../components/SvgDrawPath.vue'
+import CountUp from '../components/CountUp.vue'
+import ScrollProgress from '../components/ScrollProgress.vue'
+import TextGradient from '../components/TextGradient.vue'
+import RevealScroll from '../components/RevealScroll.vue'
+import PulseDot from '../components/PulseDot.vue'
+import RadarBreath from '../components/RadarBreath.vue'
+import LogoSheen from '../components/LogoSheen.vue'
 import { bigScreenComponents } from '../components/bigScreenComponentRegistry.js'
 
 export default {
@@ -129,6 +142,19 @@ export default {
     , GlobalStepCard1
     , GlobalStepCard2
     , DajiTiltRotate
+    , TiltCard
+    , GlassSweep
+    , OrbitRing
+    , FloatOrb
+    , BarWave
+    , SvgDrawPath
+    , CountUp
+    , ScrollProgress
+    , TextGradient
+    , RevealScroll
+    , PulseDot
+    , RadarBreath
+    , LogoSheen
     , ...bigScreenComponents
   },
   setup() {
@@ -173,6 +199,19 @@ export default {
         , GlobalStepCard1
         , GlobalStepCard2
         , DajiTiltRotate
+        , TiltCard
+        , GlassSweep
+        , OrbitRing
+        , FloatOrb
+        , BarWave
+        , SvgDrawPath
+        , CountUp
+        , ScrollProgress
+        , TextGradient
+        , RevealScroll
+        , PulseDot
+        , RadarBreath
+        , LogoSheen
         , ...bigScreenComponents
       }
       return components[componentName]
