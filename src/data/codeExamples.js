@@ -1,3 +1,5 @@
+import { bigScreenCodeExamples } from './bigScreenAnimations.js'
+
 export const codeExamples = {
   'loading-dots': {
     template: `<template>
@@ -1176,6 +1178,7 @@ export default {
 3. **平面内旋转**：只改变 rotateZ 的角度，让圆环像转盘一样旋转
 4. **光效层补强**：通过阴影、drop-shadow 和椭圆边框强化底部发光效果
 5. **路径兼容**：使用 import.meta.env.BASE_URL 引用 public 资源，兼容本地和生产 base 路径`
-  }
+  },
+  ...bigScreenCodeExamples
   
 }

@@ -103,6 +103,7 @@ import RippleButton from '../components/RippleButton.vue'
 import GlobalStepCard1 from '../components/GlobalStepCard1.vue'
 import GlobalStepCard2 from '../components/GlobalStepCard2.vue'
 import DajiTiltRotate from '../components/DajiTiltRotate.vue'
+import { bigScreenComponents } from '../components/bigScreenComponentRegistry.js'
 
 export default {
   name: 'Home',
@@ -128,6 +129,7 @@ export default {
     , GlobalStepCard1
     , GlobalStepCard2
     , DajiTiltRotate
+    , ...bigScreenComponents
   },
   setup() {
     const router = useRouter()
@@ -171,6 +173,7 @@ export default {
         , GlobalStepCard1
         , GlobalStepCard2
         , DajiTiltRotate
+        , ...bigScreenComponents
       }
       return components[componentName]
     }

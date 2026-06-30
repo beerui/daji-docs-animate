@@ -1,3 +1,5 @@
+import { bigScreenAnimations } from './bigScreenAnimations.js'
+
 export const animations = [
   {
     id: 'loading-dots',
@@ -187,7 +189,8 @@ export const animations = [
     difficulty: '中等',
     tags: ['图片', '3D', '旋转', '透视'],
     component: 'DajiTiltRotate'
-  }
+  },
+  ...bigScreenAnimations
 ]
 
 export const categories = [
@@ -199,5 +202,6 @@ export const categories = [
   '文字动画',
   '交互动画',
   'SVG动画',
-  '3D动画'
+  '3D动画',
+  '大屏动画'
 ]
